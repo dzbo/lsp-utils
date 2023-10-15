@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES5",
+        "declaration": true,
+        "outDir": "./dist/lib/es5",
+        "moduleResolution": "NodeNext",
+        "lib": ["ES2020", "DOM"],
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "types/**/*"]
+}

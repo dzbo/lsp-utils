@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ES5",
+        "lib": ["ES2020", "DOM"],
+        "declaration": true,
+        "outDir": "./dist/lib/es6",
+        "moduleResolution": "NodeNext",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "types/**/*"]
+}
