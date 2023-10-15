@@ -13,17 +13,16 @@
         "url": "git+https://github.com/b00ste/lsp-utils.git"
     },
     "scripts": {
-        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
         "lint": "eslint . --ext .ts",
-        "build": "rm -rf dist/lib && rm -rf types && npm run lint && npm run build:types && bash bin/ignoreTypesFolder.bash && tsc && tsc --build tsconfig.es5.json",
+        "prettier": "npx prettier -w .",
         "build:types": "npx typechain --target=ethers-v6 --out-dir types ./node_modules/@lukso/lsp-smart-contracts/artifacts/*.json",
+        "build": "rm -rf dist/lib && rm -rf types && npm run lint && npm run build:types && bash scripts/ignoreTypesFolder.bash && tsc && tsc --build tsconfig.es5.json",
+        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
         "prepare": "husky install",
         "release": "standard-version",
         "release:minor": "standard-version --release-as minor",
         "release:patch": "standard-version --release-as patch",
-        "release:major": "standard-version --release-as major",
-        "publish": "bash bin/copyChangeLogToDist.bash && npm publish",
-        "prettier": "npx prettier -w ."
+        "release:major": "standard-version --release-as major"
     },
     "dependencies": {
         "@commitlint/cli": "^17.8.0",

@@ -1,1 +1,0 @@
-cp CHANGELOG.md dist/CHANGELOG.md
