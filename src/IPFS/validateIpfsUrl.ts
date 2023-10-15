@@ -1,4 +1,4 @@
-import { defaultIpfsGateway } from '../../constants';
+import { defaultIpfsGateway } from '../constants';
 
 /**
  * Returns a valid URL. If it is an IPFS URL (E.g. `ipfs://{hash}`), the IPFS Gateway will be used to generate a valid link. Otherwise the link is returned.
@@ -15,7 +15,7 @@ import { defaultIpfsGateway } from '../../constants';
 export const validateIpfsUrl = (url: string, ipfsGateway?: string): string => {
     return url.startsWith('ipfs://')
         ? ipfsGateway
-            ? ipfsGateway
+            ? ipfsGateway + url.replace('ipfs://', '')
             : defaultIpfsGateway + url.replace('ipfs://', '')
         : url;
 };

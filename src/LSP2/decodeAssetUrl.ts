@@ -33,16 +33,16 @@ import { BytesLike, toUtf8String } from 'ethers';
  * ```
  */
 export const decodeAssetUrl = (assetUrlValue: BytesLike) => {
-    const stringifiedAssetUrlValue = assetUrlValue.toString().substring(2);
+    const strippedAssetUrlValue = assetUrlValue.toString().substring(2);
 
-    if (stringifiedAssetUrlValue.length < 72) {
+    if (strippedAssetUrlValue.length < 72) {
         throw new Error(`Invalid 'JSONURL' value. Less than 36 bytes. Value: ${assetUrlValue}`);
     }
 
     const decodedJSONURL = {
-        hashFunction: `0x${stringifiedAssetUrlValue.substring(0, 8)}`,
-        hash: `0x${stringifiedAssetUrlValue.substring(8, 72)}`,
-        url: toUtf8String(`0x${stringifiedAssetUrlValue.substring(72)}`),
+        hashFunction: `0x${strippedAssetUrlValue.substring(0, 8)}`,
+        hash: `0x${strippedAssetUrlValue.substring(8, 72)}`,
+        url: toUtf8String(`0x${strippedAssetUrlValue.substring(72)}`),
     };
 
     return decodedJSONURL;

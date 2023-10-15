@@ -1,4 +1,4 @@
-import { hexlify, keccak256, toUtf8Bytes } from 'ethers';
+import { keccak256, toUtf8Bytes } from 'ethers';
 
 /**
  * Generates a data key of `{ "keyType": "Singleton" }` by hashing the string `keyName`.
@@ -15,5 +15,5 @@ import { hexlify, keccak256, toUtf8Bytes } from 'ethers';
  * generateSingletonKey("RandomDataKey") //=> keccak256("RandomKeyName") = "0xb0c92ac98a2a422f33a3e130e3fa6e922195f0a0a99199963814012351f906cb"
  */
 export const generateSingletonKey = (keyName: string) => {
-    return hexlify(keccak256(toUtf8Bytes(keyName)));
+    return keccak256(toUtf8Bytes(keyName));
 };

@@ -45,7 +45,7 @@ export const isCompactBytesArray = (compactBytesArray: BytesLike) => {
         if (pointer + 4 >= strippedCompactBytesArray.length) return false;
         const elementLength = strippedCompactBytesArray.substring(pointer, pointer + 4);
 
-        pointer += toNumber(elementLength) + 4;
+        pointer += toNumber(`0x${elementLength}`) * 2 + 4;
     }
     if (pointer === strippedCompactBytesArray.length) return true;
     return false;

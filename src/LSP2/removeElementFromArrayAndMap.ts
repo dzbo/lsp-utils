@@ -2,9 +2,9 @@
 import { BytesLike, concat, isHexString, toBeHex } from 'ethers';
 
 // types
-import { UniversalProfile } from '../../../types';
-import { generateArrayElementKeyAtIndex } from '../generateArrayElementKeyAtIndex';
-import { generateMappingKey } from '../generateMappingKey';
+import { UniversalProfile } from '../../types';
+import { generateArrayElementKeyAtIndex } from './generateArrayElementKeyAtIndex';
+import { generateMappingKey } from './generateMappingKey';
 
 /**
  * Generates Data Key/Value pairs for removing an element from an LSP2 Array and a mapping Data Key.

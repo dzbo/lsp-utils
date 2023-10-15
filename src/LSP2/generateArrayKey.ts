@@ -1,4 +1,4 @@
-import { hexlify, keccak256, toUtf8Bytes } from 'ethers';
+import { keccak256, toUtf8Bytes } from 'ethers';
 
 /**
  * Generates a data key of `{ "keyType": "Array" }` by hashing `arrayKeyName`.
@@ -26,5 +26,5 @@ export const generateArrayKey = (arrayKeyName: string) => {
         throw new Error("Missing empty square brackets '[]' at the end of the data key name.");
     }
 
-    return hexlify(keccak256(toUtf8Bytes(arrayKeyName)));
+    return keccak256(toUtf8Bytes(arrayKeyName));
 };

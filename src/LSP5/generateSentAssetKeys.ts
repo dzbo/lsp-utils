@@ -5,14 +5,14 @@ import { BytesLike, toBeHex, toNumber } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // LSP2 utils
-import { isValidArrayLengthValue } from '../../LSP2/isValidArrayLengthValue';
-import { generateMappingKey } from '../../LSP2/generateMappingKey';
-import { generateArrayElementKeyAtIndex } from '../../LSP2/generateArrayElementKeyAtIndex';
-import { removeLastElementFromArrayAndMap } from '../../LSP2/removeLastElementFromArrayAndMap';
-import { removeElementFromArrayAndMap } from '../../LSP2/removeElementFromArrayAndMap';
+import { isValidArrayLengthValue } from '../LSP2/isValidArrayLengthValue';
+import { generateMappingKey } from '../LSP2/generateMappingKey';
+import { generateArrayElementKeyAtIndex } from '../LSP2/generateArrayElementKeyAtIndex';
+import { removeLastElementFromArrayAndMap } from '../LSP2/removeLastElementFromArrayAndMap';
+import { removeElementFromArrayAndMap } from '../LSP2/removeElementFromArrayAndMap';
 
 // types
-import { UniversalProfile } from '../../../types';
+import { UniversalProfile } from '../../types';
 
 /**
  * Generate an array of Data Key/Value pairs to be set on the sender address after sending assets.
@@ -31,11 +31,11 @@ import { UniversalProfile } from '../../../types';
  */
 export const generateSentAssetKeys = async (
     erc725YContract: UniversalProfile,
-    assetAddress: BytesLike
+    assetAddress: BytesLike,
 ) => {
     // --- `LSP5ReceivedAssets[]` Array ---
     const currentArrayLengthBytes = await erc725YContract.getData(
-        ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length
+        ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
     );
 
     // CHECK that the value of `LSP5ReceivedAssets[]` Array length is a valid `uint128` (16 bytes long)
@@ -54,7 +54,7 @@ export const generateSentAssetKeys = async (
 
     const removedElementMapKey = generateMappingKey(
         ERC725YDataKeys.LSP5.LSP5ReceivedAssetsMap,
-        assetAddress.toString()
+        assetAddress.toString(),
     );
 
     // Query the ERC725Y storage of the LSP0-ERC725Account
@@ -64,12 +64,12 @@ export const generateSentAssetKeys = async (
     // If that's the case, there is nothing to remove. Do not try to update.
     if (mapValue === '' || mapValue === '0x') {
         throw new Error(
-            `Asset is not registerd length is 0. Cannot remove asset. Asset address: '${assetAddress}'`
+            `Asset is not registerd length is 0. Cannot remove asset. Asset address: '${assetAddress}'`,
         );
     }
     if (mapValue.length !== 20) {
         throw new Error(
-            `Registered asset has invalid data in the map. Asset address: '${assetAddress}'. Map data: '${mapValue}'.`
+            `Registered asset has invalid data in the map. Asset address: '${assetAddress}'. Map data: '${mapValue}'.`,
         );
     }
 
@@ -78,7 +78,7 @@ export const generateSentAssetKeys = async (
 
     const removedElementIndexKey = generateArrayElementKeyAtIndex(
         ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
-        removedElementIndex
+        removedElementIndex,
     );
 
     if (removedElementIndex === newArrayLength) {
@@ -86,7 +86,7 @@ export const generateSentAssetKeys = async (
             ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
             newArrayLength,
             removedElementIndexKey,
-            removedElementMapKey
+            removedElementMapKey,
         );
     } else if (removedElementIndex < newArrayLength) {
         return removeElementFromArrayAndMap(
@@ -95,14 +95,14 @@ export const generateSentAssetKeys = async (
             newArrayLength,
             removedElementIndexKey,
             removedElementIndex,
-            removedElementMapKey
+            removedElementMapKey,
         );
     } else {
         // If index is bigger than the array length, out of bounds
         throw new Error(
             `Element index is out of the array bounds. Array length: '${
                 newArrayLength + 1
-            }'. Asset index: '${removedElementIndex}'`
+            }'. Asset index: '${removedElementIndex}'`,
         );
     }
 };

@@ -1,15 +1,15 @@
-import { BytesLike, concat, isHexString, toBeHex, toNumber } from "ethers";
+import { BytesLike, concat, isHexString, toBeHex, toNumber } from 'ethers';
 
 // `@luksp/lsp-smart-contracts` constants
-import { ERC725YDataKeys } from "@lukso/lsp-smart-contracts";
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // LSP2 utils
-import { isValidArrayLengthValue } from "../../LSP2/isValidArrayLengthValue";
-import { generateMappingKey } from "../../LSP2/generateMappingKey";
-import { generateArrayElementKeyAtIndex } from "../../LSP2/generateArrayElementKeyAtIndex";
+import { isValidArrayLengthValue } from '../LSP2/isValidArrayLengthValue';
+import { generateMappingKey } from '../LSP2/generateMappingKey';
+import { generateArrayElementKeyAtIndex } from '../LSP2/generateArrayElementKeyAtIndex';
 
 // types
-import { UniversalProfile } from "../../../types";
+import { UniversalProfile } from '../../types';
 
 /**
  * Generate an array of Data Key/Value pairs to be set on the receiver address after receiving assets.
@@ -30,7 +30,7 @@ import { UniversalProfile } from "../../../types";
 export const generateReceivedAssetKeys = async (
     erc725YContract: UniversalProfile,
     assetAddress: BytesLike,
-    assetInterfaceId: BytesLike
+    assetInterfaceId: BytesLike,
 ) => {
     if (isHexString(assetAddress, 20)) {
         throw new Error(`'assetAddress' bytes length is not 20. Value: ${assetAddress}`);
@@ -42,7 +42,7 @@ export const generateReceivedAssetKeys = async (
 
     // --- `LSP5ReceivedAssets[]` Array ---
     let currentArrayLengthBytes = await erc725YContract.getData(
-        ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length
+        ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
     );
 
     // CHECK that the value of `LSP5ReceivedAssets[]` Array length is a valid `uint128` (16 bytes long)
@@ -55,7 +55,7 @@ export const generateReceivedAssetKeys = async (
         } else {
             // otherwise the array length is invalid
             throw new Error(
-                `'LSP5ReceivedAssets[]' length invalid. Value: ${currentArrayLengthBytes}`
+                `'LSP5ReceivedAssets[]' length invalid. Value: ${currentArrayLengthBytes}`,
             );
         }
     }
@@ -63,7 +63,7 @@ export const generateReceivedAssetKeys = async (
     // CHECK for potential overflow
     if (currentArrayLengthBytes === `0x${'ff'.repeat(16)}`) {
         throw new Error(
-            `'LSP5ReceivedAssets[]' length reached max value. Value: ${currentArrayLengthBytes}`
+            `'LSP5ReceivedAssets[]' length reached max value. Value: ${currentArrayLengthBytes}`,
         );
     }
 
@@ -73,7 +73,7 @@ export const generateReceivedAssetKeys = async (
 
     const mapDataKey = generateMappingKey(
         ERC725YDataKeys.LSP5.LSP5ReceivedAssetsMap,
-        assetAddress.toString()
+        assetAddress.toString(),
     );
 
     // CHECK that the map value is not already set in the storage for the newly received asset
@@ -95,7 +95,7 @@ export const generateReceivedAssetKeys = async (
     // Add asset address to `LSP5ReceivedAssets[index]`, where index == previous array length
     lsp5DataKeys[1] = generateArrayElementKeyAtIndex(
         ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
-        currentArrayLength
+        currentArrayLength,
     );
     lsp5DataValues[1] = assetAddress;
 
@@ -103,6 +103,5 @@ export const generateReceivedAssetKeys = async (
     lsp5DataKeys[2] = mapDataKey;
     lsp5DataValues[2] = concat([assetInterfaceId, currentArrayLengthBytes]);
 
-    return {lsp5DataKeys,
-        lsp5DataValues}
+    return { lsp5DataKeys, lsp5DataValues };
 };

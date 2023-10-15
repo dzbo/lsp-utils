@@ -1,5 +1,5 @@
 import { concat, isHexString, toBeHex } from 'ethers';
-import { generateArrayKey } from '../generateArrayKey';
+import { generateArrayKey } from './generateArrayKey';
 
 /**
  * Generates a data key of `{ "keyType": "Array" }` at a specific `index`. `arrayKey` can have the following values:
