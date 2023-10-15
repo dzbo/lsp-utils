@@ -32,4 +32,4 @@ export { decodeAllowedCalls } from './LSP6/decodeAllowedCalls';
 export { encodeAllowedCalls } from './LSP6/encodeAllowedCalls';
 export { decodeAllowedERC725YDataKeys } from './LSP6/decodeAllowedERC725YDataKeys';
 export { encodeAllowedERC725YDataKeys } from './LSP6/encodeAllowedERC725YDataKeys';
-export { createValidityTimestamp } from './LSP6/createValidityTimestamp'
+export { createValidityTimestamp } from './LSP6/createValidityTimestamp';

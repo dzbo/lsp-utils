@@ -18,14 +18,17 @@ import { BigNumberish, concat, toBeHex } from 'ethers';
  * createValidityTimestamp(5, 10) //=> `0x000000000000000000000000000000050000000000000000000000000000000a`
  * ```
  */
-export const createValidityTimestamp = (startingTimestamp: number | BigNumberish, endingTimestamp: number | BigNumberish) => {
+export const createValidityTimestamp = (
+    startingTimestamp: number | BigNumberish,
+    endingTimestamp: number | BigNumberish,
+) => {
     if (toBeHex(startingTimestamp).length > 34) {
-        throw new Error(`The hex value of the number: '${startingTimestamp}' execeeds 16 bytes`)
+        throw new Error(`The hex value of the number: '${startingTimestamp}' execeeds 16 bytes`);
     }
 
     if (toBeHex(endingTimestamp).length > 34) {
-        throw new Error(`The hex value of the number: '${endingTimestamp}' execeeds 16 bytes`)
+        throw new Error(`The hex value of the number: '${endingTimestamp}' execeeds 16 bytes`);
     }
-     
+
     return concat([toBeHex(startingTimestamp, 16), toBeHex(endingTimestamp, 16)]);
 };
