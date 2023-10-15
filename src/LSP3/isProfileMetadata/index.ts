@@ -1,4 +1,4 @@
-import { LSP3ProfileMetadata } from '../../types/dataTypes';
+import { LSP3ProfileMetadata } from '../../constants';
 
 /**
  * Returns `true` is the passed object is an LSP3 Profile Metadata, `false` otherwise.

@@ -1,4 +1,4 @@
-import { defaultIpfsGateway } from '../../constants/constants';
+import { defaultIpfsGateway } from '../../constants';
 
 /**
  * Returns a valid URL. If it is an IPFS URL (E.g. `ipfs://{hash}`), the IPFS Gateway will be used to generate a valid link. Otherwise the link is returned.
