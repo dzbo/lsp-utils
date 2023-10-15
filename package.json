@@ -12,6 +12,12 @@
         "type": "git",
         "url": "git+https://github.com/b00ste/lsp-utils.git"
     },
+    "files": [
+        "dist",
+        "./README.md",
+        "./CHANGELOG.md",
+        "./LICENSE"
+    ],
     "scripts": {
         "lint": "eslint . --ext .ts",
         "prettier": "npx prettier -w .",
