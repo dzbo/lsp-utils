@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-if [[ $(git diff origin/main --name-only src/) != "" ]];
+if [[ $(git diff origin/main --name-only src/ tests/) != "" ]];
 then
     npm test
 fi
