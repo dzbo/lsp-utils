@@ -1,3 +1,5 @@
+@lukso/lsp-smart-contracts-utils / [Exports](modules.md)
+
 # LSP Utils &middot; [![npm version](https://img.shields.io/npm/v/@lukso/lsp-smart-contracts-utils.svg?style=flat)](https://www.npmjs.com/package/@lukso/lsp-smart-contracts-utils)
 
 This package was created with the intent to help developers to use `@lukso/lsp-smart-contracts`. Its purpose is to provide a series of helper functions for each LSP.
