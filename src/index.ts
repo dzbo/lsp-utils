@@ -1,5 +1,5 @@
 // ------ Constants ------
-export { LSP3ProfileMetadata, defaultIpfsGateway, defaultLSP3ProfileMetadata } from './constants';
+export * from './constants';
 
 // ------ IPFS ------
 export { validateIpfsUrl } from './IPFS/validateIpfsUrl';
