@@ -1,27 +1,33 @@
-for UTIL in src/**/*.ts;
+for utilPath in src/**/*.ts;
 do
-    # cache util file name
-    ## remove the longest string from left to right
-    ## which ends in "/"
-    utilFileName=${UTIL##*/}
-    ## remove the longest string from right to left
-    ## which starts with "."
-    utilFileName=${utilFileName%%.*}
-
     # if util is `index.ts` skip to the next element
-    if [ "$utilFileName" == "index" ];
+    if [ $utilPath == "src/index.ts" ] || [ $utilPath == "src/constants/index.ts" ];
     then
         continue
     fi;
 
+    # ignore src/typechain/ folder
+    if [[ $utilPath == src/typechain/* ]];
+    then
+        continue
+    fi;
+
+    # cache util file name
+    ## remove the longest string from left to right
+    ## which ends in "/"
+    utilFileName=${utilPath##*/}
+    ## remove the longest string from right to left
+    ## which starts with "."
+    utilFileName=${utilFileName%%.*}
+
     utilHasTest=0
 
-    for TEST in tests/**/*.test.ts;
+    for testPath in tests/**/*.test.ts;
     do
         # cache test file name
         ## remove the longest string from left to right
         ## which ends in "/"
-        testFileName=${TEST##*/}
+        testFileName=${testPath##*/}
         ## remove the longest string from right to left
         ## which starts with "."
         testFileName=${testFileName%%.*}
