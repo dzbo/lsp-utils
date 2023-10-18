@@ -25,9 +25,11 @@
     "scripts": {
         "lint": "eslint . --ext .ts",
         "prettier": "prettier -w .",
+        "clean": "rm -rf dist && rm -rf src/typechain",
         "build:docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
-        "build:types": "typechain --target=ethers-v6 --out-dir types ./node_modules/@lukso/lsp-smart-contracts/artifacts/*.json",
-        "build": "rm -rf dist/lib && rm -rf types && npm run lint && npm run build:types && vite build",
+        "build:types:all": "typechain --target=ethers-v6 --out-dir src/typechain ./node_modules/@lukso/lsp-smart-contracts/artifacts/*.json",
+        "build:types:specific": "bash scripts/generateSpecificTypechain.bash",
+        "build": "npm run clean && npm run lint && npm run build:types:specific && vite build",
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
         "prepare": "husky install",
         "release": "standard-version",

@@ -12,7 +12,7 @@ import { removeLastElementFromArrayAndMap } from '../LSP2/removeLastElementFromA
 import { removeElementFromArrayAndMap } from '../LSP2/removeElementFromArrayAndMap';
 
 // types
-import { UniversalProfile } from '../../types';
+import { UniversalProfile } from '../typechain';
 
 /**
  * Generate an array of Data Key/Value pairs to be set on the sender address after sending assets.

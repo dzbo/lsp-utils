@@ -13,7 +13,7 @@ import { decodeJsonUrl } from '../LSP2/decodeJsonUrl';
 import { isProfileMetadata } from './isProfileMetadata';
 
 // types
-import { UniversalProfile } from '../../types';
+import { UniversalProfile } from '../typechain';
 
 /**
  * Returns a object of type LSP3ProfileMetadata.

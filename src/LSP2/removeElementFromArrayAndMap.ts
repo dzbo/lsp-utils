@@ -2,7 +2,7 @@
 import { BytesLike, concat, isHexString, toBeHex } from 'ethers';
 
 // types
-import { UniversalProfile } from '../../types';
+import { UniversalProfile } from '../typechain';
 import { generateArrayElementKeyAtIndex } from './generateArrayElementKeyAtIndex';
 import { generateMappingKey } from './generateMappingKey';
 

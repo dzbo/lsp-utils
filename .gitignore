@@ -4,4 +4,4 @@
 /dist
 
 # Typechain smart contracts types
-/types
+/src/typechain
