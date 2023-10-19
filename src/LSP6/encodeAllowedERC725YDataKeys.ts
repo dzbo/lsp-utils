@@ -29,7 +29,7 @@ export const encodeAllowedERC725YDataKeys = (dataKeys: BytesLike[]) => {
         const dataKey = dataKeys[i];
 
         if (!isHexString(dataKey)) {
-            throw new Error(`'${dataKey}' is not hex`);
+            throw new Error(`Data key is not hex. Value: '${dataKey}'`);
         }
 
         const strippedDataKey = dataKey.replace('0x', '');

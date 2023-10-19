@@ -36,7 +36,7 @@ import { BytesLike, isHexString, toNumber } from 'ethers';
  */
 export const decodeAllowedCalls = (allowedCalls: BytesLike) => {
     if (!isHexString(allowedCalls)) {
-        throw new Error(`'${allowedCalls}' is not hex`);
+        throw new Error(`The parameter \`allowedCalls\` is not hex. Value: '${allowedCalls}'`);
     }
 
     const strippedAllowedCalls = allowedCalls.substring(2);

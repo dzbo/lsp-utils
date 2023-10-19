@@ -6,7 +6,7 @@ describe('decodeAllowedERC725YDataKeys', () => {
         const allowedERC725YDataKeys = 'allowedERC725YDataKeys';
 
         expect(() => decodeAllowedERC725YDataKeys(allowedERC725YDataKeys)).to.throw(
-            `'${allowedERC725YDataKeys}' is not hex`,
+            `The parameter \`allowedERC725YDataKeys\` is not hex. Value: '${allowedERC725YDataKeys}'`,
         );
     });
 

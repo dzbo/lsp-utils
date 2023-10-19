@@ -6,7 +6,7 @@ describe('encodeAllowedERC725YDataKeys.test', () => {
         const dataKeys = ['data key'];
 
         expect(() => encodeAllowedERC725YDataKeys(dataKeys)).to.throw(
-            `'${dataKeys[0]}' is not hex`,
+            `Data key is not hex. Value: '${dataKeys[0]}'`,
         );
     });
 

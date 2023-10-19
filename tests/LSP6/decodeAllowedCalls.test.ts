@@ -5,7 +5,9 @@ describe('decodeAllowedCalls', () => {
     it('should throw if passed `allowedCalls` is not hex', () => {
         const allowedCalls = 'allowedCalls';
 
-        expect(() => decodeAllowedCalls(allowedCalls)).to.throw(`'${allowedCalls}' is not hex`);
+        expect(() => decodeAllowedCalls(allowedCalls)).to.throw(
+            `The parameter \`allowedCalls\` is not hex. Value: '${allowedCalls}'`,
+        );
     });
 
     it('should throw if a length in the passed `allowedCalls` is 0', () => {

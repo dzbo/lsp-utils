@@ -26,7 +26,9 @@ import { BytesLike, isHexString, toNumber } from 'ethers';
  */
 export function decodeAllowedERC725YDataKeys(allowedERC725YDataKeys: BytesLike) {
     if (!isHexString(allowedERC725YDataKeys)) {
-        throw new Error(`'${allowedERC725YDataKeys}' is not hex`);
+        throw new Error(
+            `The parameter \`allowedERC725YDataKeys\` is not hex. Value: '${allowedERC725YDataKeys}'`,
+        );
     }
 
     const strippedAllowedERC725YDataKeys = allowedERC725YDataKeys.substring(2);
