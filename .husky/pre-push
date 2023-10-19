@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# check if all utils have a test file
+bash scripts/compareSrcAndTests.bash

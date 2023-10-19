@@ -10,6 +10,12 @@ do
         continue
     fi;
 
+    # ignore src/typechain/ folder
+    if [[ $utilPath == src/typechain/* ]];
+    then
+        continue
+    fi;
+
     # cache util file name
     ## remove the shortest string from left to right which ends in "/"
     utilName=${utilPath#*/}
