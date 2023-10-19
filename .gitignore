@@ -5,3 +5,6 @@
 
 # Typechain smart contracts types
 /src/typechain
+
+# hardhat
+/cache
