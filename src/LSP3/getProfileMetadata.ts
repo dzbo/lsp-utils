@@ -1,7 +1,7 @@
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // constants
-import { defaultLSP3ProfileMetadata } from '../constants';
+import { LSP3ProfileMetadata, defaultLSP3ProfileMetadata } from '../constants';
 
 // IPFS Utils
 import { validateIpfsUrl } from '../IPFS/validateIpfsUrl';
@@ -48,7 +48,7 @@ export const getProfileMetadata = async (unviersalProfile: UniversalProfile) => 
 
     const profileDataURL = validateIpfsUrl(JSONURL.url);
 
-    let profileData;
+    let profileData: LSP3ProfileMetadata;
 
     await fetch(profileDataURL)
         .then(async (result) => await result.json())
