@@ -19,7 +19,7 @@ import {
  * @since v0.0.2
  * @category LSP12
  * @param signer The signer that will send the transaction.
- * @param issuerAddress The adderss of a issuer contract that supports ERC725Y.
+ * @param issuerAddress The address of a issuer contract that supports ERC725Y.
  * @param newIssuedAssets An array of issued assets which specifies the address and interface id of each issued asset.
  *
  * @throws

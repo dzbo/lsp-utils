@@ -18,8 +18,8 @@ import {
  *
  * @since v0.0.2
  * @category LSP4
- * @param provider A ethers provider.
- * @param digitalAssetAddress The adderss of the digital asset contract that supports ERC725Y.
+ * @param provider An ethers provider.
+ * @param digitalAssetAddress The address of the digital asset contract that supports ERC725Y.
  *
  * @returns An array of Issuers.
  *
@@ -30,7 +30,6 @@ import {
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md
  */
-export async function getDigitalAssetCreators(digitalAsset: ERC725Y): Promise<Issuer[]>;
 export async function getDigitalAssetCreators(
     digitalAsset: ERC725Y | BytesLike,
     provider?: Provider,

@@ -31,6 +31,8 @@ export {
     LSP3ProfileMetadata,
     Issuer,
     DigitalAsset,
+    IssuerAssets,
+    DigitalAssetsCreators,
     LSP6Controller,
 } from './types';
 
@@ -66,6 +68,7 @@ export { getProfileMetadata, isProfileMetadata } from './LSP3';
 // ------ LSP4 ------
 export {
     addDigitalAssetCreators,
+    authenticateDigitalAssetCreators,
     removeDigitalAssetCreators,
     getDigitalAssetCreators,
     getAssetMetadata,
@@ -87,7 +90,12 @@ export {
 } from './LSP6';
 
 // ------ LSP12 ------
-export { addIssuedAssets, removeIssuedAssets, getIssuedAssets } from './LSP12';
+export {
+    addIssuedAssets,
+    authenticateIssuedAssets,
+    removeIssuedAssets,
+    getIssuedAssets,
+} from './LSP12';
 
 // ------ LSP23 ------
 export { deployUniversalProfile } from './LSP23';

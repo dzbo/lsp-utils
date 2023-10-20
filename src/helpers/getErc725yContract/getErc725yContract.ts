@@ -10,7 +10,6 @@ import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
  * @param erc725y Contract address or instance.
  * @param signer Signer or provider used for connecting to the contract on the correct network.
  */
-export async function getErc725yContract(erc725y: ERC725Y): Promise<ERC725Y>;
 export async function getErc725yContract(
     erc725y: ERC725Y | BytesLike,
     signer?: Signer | Wallet | Provider,

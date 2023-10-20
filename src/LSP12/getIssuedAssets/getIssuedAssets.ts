@@ -18,8 +18,8 @@ import {
  *
  * @since v0.0.2
  * @category LSP12
- * @param provider A ethers provider.
- * @param issuerAddress The adderss of the issuer contract that supports ERC725Y.
+ * @param provider An ethers provider.
+ * @param issuerAddress The address of the issuer contract that supports ERC725Y.
  *
  * @returns An array of Digital Assets.
  *
@@ -30,7 +30,6 @@ import {
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
  */
-export async function getIssuedAssets(issuer: ERC725Y): Promise<DigitalAsset[]>;
 export async function getIssuedAssets(
     issuer: ERC725Y | BytesLike,
     provider?: Provider,
