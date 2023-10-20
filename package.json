@@ -39,6 +39,7 @@
         "publish": "git push --follow-tags origin main && npm publish"
     },
     "dependencies": {
+        "@erc725/erc725.js": "^0.20.0",
         "@lukso/lsp-smart-contracts": "^0.11.1",
         "ethers": "^6.8.0"
     },

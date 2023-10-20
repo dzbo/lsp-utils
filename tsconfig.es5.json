@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "ES5",
+        "target": "ES2021",
         "lib": ["ES2020", "DOM"],
         "declaration": true,
         "outDir": "./dist/es5",
         "moduleResolution": "NodeNext",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "dist"]

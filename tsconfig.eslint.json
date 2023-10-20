@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
         "module": "NodeNext",
-        "target": "ES5",
+        "target": "ES2021",
         "lib": ["ES2020", "DOM"],
         "declaration": true,
         "outDir": "./dist/es6",
         "moduleResolution": "NodeNext",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     },
     "include": ["src/**/*", "tests/**/*", "vite.config.ts", "hardhat.config.ts"],
     "exclude": ["node_modules", "dist"]
