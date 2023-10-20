@@ -1,4 +1,4 @@
-import { concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
+import { BytesLike, concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
 
 /**
  * Generates a data key of `{ "keyType": "Mapping" }` that map `firstPart` to `lastPart`.
@@ -36,13 +36,15 @@ import { concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
  * - generateMappingKey(bytes10Value, bytes20value)
  * //=>`<bytes10Value>:<0000>:<bytes20value>`
  */
-export const generateMappingKey = (firstPart: string, lastPart: string) => {
+export const generateMappingKey = (firstPart: string | BytesLike, lastPart: string | BytesLike) => {
     let firstPartHex = firstPart;
 
     if (!isHexString(firstPart, 10)) {
-        if (isHexString(firstPart)) {
+        if (isHexString(firstPart, 12) && firstPart.endsWith('0000')) {
+            firstPartHex = firstPart.substring(0, 22);
+        } else if (isHexString(firstPart)) {
             firstPartHex = keccak256(firstPart).substring(0, 22);
-        } else {
+        } else if (typeof firstPart === 'string') {
             firstPartHex = keccak256(toUtf8Bytes(firstPart)).substring(0, 22);
         }
     }
@@ -52,7 +54,7 @@ export const generateMappingKey = (firstPart: string, lastPart: string) => {
     if (!isHexString(lastPart, 20)) {
         if (isHexString(lastPart)) {
             lastPartHex = keccak256(lastPart).substring(0, 42);
-        } else {
+        } else if (typeof lastPart === 'string') {
             lastPartHex = keccak256(toUtf8Bytes(lastPart)).substring(0, 42);
         }
     }

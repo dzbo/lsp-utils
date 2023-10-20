@@ -1,4 +1,4 @@
-import { concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
+import { BytesLike, concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
 
 /**
  * Generates a data key of `{ "keyType": "MappingWithGrouping" }` that map `firstPart` to `middlePart` and to `lastPart`.
@@ -55,16 +55,16 @@ import { concat, isHexString, keccak256, toUtf8Bytes } from 'ethers';
  * //=> `<bytes6Value>:<bytes4Value>:<0000>:<bytes20Value>`
  */
 export const generateMappingWithGroupingKey = (
-    firstPart: string,
-    middlePart: string,
-    lastPart: string,
+    firstPart: string | BytesLike,
+    middlePart: string | BytesLike,
+    lastPart: string | BytesLike,
 ) => {
     let firstPartHex = firstPart;
 
     if (!isHexString(firstPart, 6)) {
         if (isHexString(firstPart)) {
             firstPartHex = keccak256(firstPart).substring(0, 14);
-        } else {
+        } else if (typeof firstPart === 'string') {
             firstPartHex = keccak256(toUtf8Bytes(firstPart)).substring(0, 14);
         }
     }
@@ -74,7 +74,7 @@ export const generateMappingWithGroupingKey = (
     if (!isHexString(middlePart, 4)) {
         if (isHexString(middlePart)) {
             middlePartHex = keccak256(middlePart).substring(0, 10);
-        } else {
+        } else if (typeof middlePart === 'string') {
             middlePartHex = keccak256(toUtf8Bytes(middlePart)).substring(0, 10);
         }
     }
@@ -84,7 +84,7 @@ export const generateMappingWithGroupingKey = (
     if (!isHexString(lastPart, 20)) {
         if (isHexString(lastPart)) {
             lastPartHex = keccak256(lastPart).substring(0, 42);
-        } else {
+        } else if (typeof lastPart === 'string') {
             lastPartHex = keccak256(toUtf8Bytes(lastPart)).substring(0, 42);
         }
     }
