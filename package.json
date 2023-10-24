@@ -27,7 +27,7 @@
         "prettier": "prettier -w .",
         "clean": "rm -rf dist && rm -rf src/typechain",
         "build:docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
-        "build:types:all": "typechain --target=ethers-v6 --out-dir src/typechain ./node_modules/@lukso/lsp-smart-contracts/artifacts/*.json",
+        "build:types:all": "typechain --target=ethers-v6 --out-dir src/typechain ./node_modules/@lukso/lsp-smart-contracts/artifacts/*.json ./node_modules/@erc725/smart-contracts/artifacts/*.json",
         "build:types:specific": "bash scripts/generateSpecificTypechain.bash",
         "build": "npm run clean && npm run lint && npm run build:types:specific && vite build",
         "test": "hardhat test tests/**/*.test.ts",

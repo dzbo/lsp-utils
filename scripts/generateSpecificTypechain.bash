@@ -107,6 +107,11 @@ done
 typechainCommand="npx typechain --target=ethers-v6 --out-dir src/typechain"
 for contractName in $typechainDependencies
 do
-    typechainCommand+=" ./node_modules/@lukso/lsp-smart-contracts/artifacts/$contractName.json"
+    if [[ $contractName == ERC725* ]];
+    then
+        typechainCommand+=" ./node_modules/@erc725/smart-contracts/artifacts/$contractName.json"
+    else
+        typechainCommand+=" ./node_modules/@lukso/lsp-smart-contracts/artifacts/$contractName.json"
+    fi;
 done
 $typechainCommand
