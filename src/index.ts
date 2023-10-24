@@ -23,6 +23,11 @@ export { removeLastElementFromArrayAndMap } from './LSP2/removeLastElementFromAr
 export { getProfileMetadata } from './LSP3/getProfileMetadata';
 export { isProfileMetadata } from './LSP3/isProfileMetadata';
 
+// ------ LSP4 ------
+export { addDigitalAssetCreators } from './LSP4/addDigitalAssetCreators';
+export { removeDigitalAssetCreators } from './LSP4/removeDigitalAssetCreators';
+export { getDigitalAssetCreators } from './LSP4/getDigitalAssetCreators';
+
 // ------ LSP5 ------
 export { generateReceivedAssetKeys } from './LSP5/generateReceivedAssetKeys';
 export { generateSentAssetKeys } from './LSP5/generateSentAssetKeys';
