@@ -39,3 +39,4 @@ export { encodeAllowedCalls } from './LSP6/encodeAllowedCalls';
 export { decodeAllowedERC725YDataKeys } from './LSP6/decodeAllowedERC725YDataKeys';
 export { encodeAllowedERC725YDataKeys } from './LSP6/encodeAllowedERC725YDataKeys';
 export { encodePermissions } from './LSP6/encodePermissions';
+export { decodePermissions } from './LSP6/decodePermissions';

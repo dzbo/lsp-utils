@@ -1,4 +1,9 @@
 import { BytesLike } from 'ethers';
+import { PERMISSIONS } from '@lukso/lsp-smart-contracts';
+
+// generate types from PERMISSIONS imported from `@lukso/lsp-smart-contracts`
+export type LSP6PermissionName = keyof typeof PERMISSIONS;
+export type LSP6Permission = (typeof PERMISSIONS)[LSP6PermissionName];
 
 export interface LSP3ProfileMetadata {
     LSP3Profile: {
