@@ -30,6 +30,8 @@ export interface LSP3ProfileMetadata {
 
 export type Issuer = { address: BytesLike; interfaceId: BytesLike };
 
+export type DigitalAsset = { address: BytesLike; interfaceId: BytesLike };
+
 export const defaultLSP3ProfileMetadata: LSP3ProfileMetadata = {
     LSP3Profile: {
         description: '',

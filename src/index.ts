@@ -40,3 +40,8 @@ export { decodeAllowedERC725YDataKeys } from './LSP6/decodeAllowedERC725YDataKey
 export { encodeAllowedERC725YDataKeys } from './LSP6/encodeAllowedERC725YDataKeys';
 export { encodePermissions } from './LSP6/encodePermissions';
 export { decodePermissions } from './LSP6/decodePermissions';
+
+// ------ LSP12 ------
+export { addIssuedAssets } from './LSP12/addIssuedAssets';
+export { removeIssuedAssets } from './LSP12/removeIssuedAssets';
+export { getIssuedAssets } from './LSP12/getIssuedAssets';
