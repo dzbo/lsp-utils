@@ -1,4 +1,5 @@
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
+import fetch from 'isomorphic-fetch';
 
 // constants
 import { LSP3ProfileMetadata, defaultLSP3ProfileMetadata } from '../constants';
@@ -13,7 +14,8 @@ import { decodeJsonUrl } from '../LSP2/decodeJsonUrl';
 import { isProfileMetadata } from './isProfileMetadata';
 
 // types
-import { UniversalProfile } from '../typechain';
+import { UniversalProfile, UniversalProfile__factory } from '../typechain';
+import { BytesLike, Provider, isAddress, isAddressable } from 'ethers';
 
 /**
  * Returns a object of type LSP3ProfileMetadata.
@@ -39,8 +41,25 @@ import { UniversalProfile } from '../typechain';
  * // }
  * ```
  */
-export const getProfileMetadata = async (unviersalProfile: UniversalProfile) => {
-    const profileMetadataDataValue = await unviersalProfile.getData(
+export async function getProfileMetadata(
+    unviersalProfile: UniversalProfile,
+): Promise<LSP3ProfileMetadata>;
+export async function getProfileMetadata(
+    unviersalProfile: BytesLike,
+    provider: Provider,
+): Promise<LSP3ProfileMetadata>;
+export async function getProfileMetadata(
+    unviersalProfile: BytesLike | UniversalProfile,
+    provider?: Provider,
+): Promise<LSP3ProfileMetadata> {
+    let unviersalProfileContract: UniversalProfile;
+    if (isAddress(unviersalProfile)) {
+        unviersalProfileContract = UniversalProfile__factory.connect(unviersalProfile, provider);
+    } else if (isAddressable(unviersalProfile)) {
+        unviersalProfileContract = unviersalProfile;
+    }
+
+    const profileMetadataDataValue = await unviersalProfileContract.getData(
         ERC725YDataKeys.LSP3.LSP3Profile,
     );
 
@@ -48,15 +67,15 @@ export const getProfileMetadata = async (unviersalProfile: UniversalProfile) => 
 
     const profileDataURL = validateIpfsUrl(JSONURL.url);
 
-    let profileData: LSP3ProfileMetadata;
-
-    await fetch(profileDataURL)
-        .then(async (result) => await result.json())
-        .then((result) => (profileData = result));
+    const profileData: LSP3ProfileMetadata = await fetch(profileDataURL).then((response) =>
+        response.json(),
+    );
 
     if (!isProfileMetadata(profileData)) {
         throw new Error('Fetched data is not an `LSP3ProfileMetadata` object.');
     }
 
     return profileData ? profileData : defaultLSP3ProfileMetadata;
-};
+}
+
+export default getProfileMetadata;
