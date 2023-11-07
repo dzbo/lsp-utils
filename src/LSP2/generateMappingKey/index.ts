@@ -1,0 +1,1 @@
+export { generateMappingKey } from './generateMappingKey';

@@ -1,5 +1,5 @@
 invalidTests=""
-for test in tests/**/*.ts
+for test in src/***/**/*.test.ts
 do
     if grep -q describe.only "$test" ||
        grep -q it.only "$test";

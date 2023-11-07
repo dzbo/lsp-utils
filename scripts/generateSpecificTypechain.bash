@@ -2,16 +2,16 @@ typechainDependencies=""
 
 # check the dependencies of utils
 # if dependency will have its tests run, then run the tests for the unchanged util as well
-for utilPath in src/**/*.ts;
+for utilPath in src/***/**/*.ts;
 do
-    # if util is `index.ts` skip to the next element
-    if [ $utilPath == "src/index.ts" ] || [ $utilPath == "src/constants/index.ts" ];
+    # ignore src/***/**/*.test.ts
+    if [[ $utilPath == *.test.ts ]];
     then
         continue
     fi;
 
-    # ignore src/typechain/ folder
-    if [[ $utilPath == src/typechain/* ]];
+    # ignore src/***/**/index.ts
+    if [[ $utilPath == *index.ts ]];
     then
         continue
     fi;
@@ -36,7 +36,7 @@ do
         dependency=${dependency%\'*}
 
         # check if dependency starts with './' or '../', which means it is from 'src/'
-        if [[ $dependency == ../typechain* ]];
+        if [[ $dependency == ../../typechain* ]];
         then
             # remove the shortest string from left to right which ends in "{"
             importedContracts=${line#*"{"}
@@ -45,7 +45,7 @@ do
             # clear the whitespaces
             importedContracts=$(echo $importedContracts | sed 's/ //g')
 
-            # check if there are multiple imported contracts or signgle
+            # check if there are multiple imported contracts or single
             if [[ $importedContracts == *,* ]];
             then
                 # transform the imported contracts to an array

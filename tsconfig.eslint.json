@@ -9,6 +9,6 @@
         "skipLibCheck": true,
         "resolveJsonModule": true
     },
-    "include": ["src/**/*", "tests/**/*", "vite.config.ts", "hardhat.config.ts"],
+    "include": ["src", "vite.config.ts", "hardhat.config.ts"],
     "exclude": ["node_modules", "dist"]
 }

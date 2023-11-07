@@ -1,49 +1,27 @@
-for utilPath in src/**/*.ts;
+for utilPath in src/***/**/*.ts;
 do
-    # if util is `index.ts` skip to the next element
-    if [ $utilPath == "src/index.ts" ] || [ $utilPath == "src/constants/index.ts" ];
+    # ignore src/***/**/*.test.ts
+    if [[ $utilPath == *.test.ts ]];
     then
         continue
     fi;
 
-    # ignore src/typechain/ folder
-    if [[ $utilPath == src/typechain/* ]];
+    # ignore src/***/**/index.ts
+    if [[ $utilPath == *index.ts ]];
     then
         continue
     fi;
 
-    # cache util file name
-    ## remove the longest string from left to right
-    ## which ends in "/"
-    utilFileName=${utilPath##*/}
+    echo $utilPath
+
+    # generate the `testPath` from `utilPath`
     ## remove the longest string from right to left
     ## which starts with "."
-    utilFileName=${utilFileName%%.*}
+    testPath=${utilPath%%.*}.test.ts
 
-    utilHasTest=0
-
-    for testPath in tests/**/*.test.ts;
-    do
-        # cache test file name
-        ## remove the longest string from left to right
-        ## which ends in "/"
-        testFileName=${testPath##*/}
-        ## remove the longest string from right to left
-        ## which starts with "."
-        testFileName=${testFileName%%.*}
-
-        # compare util and test name
-        # is test is present, then it should set `utilHasTest` to true
-        if [ "$utilFileName" == "$testFileName" ];
-        then
-            utilHasTest=1
-        fi;
-    done
-
-    # exit with error if util does not have a test
-    if [ "$utilHasTest" == "0" ];
+    if [ ! -f "$testPath" ];
     then
-        echo "The file \`$utilFileName.ts\` does not have any tests. Please add tests for the features and functions in this file."
+        echo "The file \`$utilPath\` does not have any tests. Please add tests for the features and functions in this file."
         exit 1
-    fi;
+    fi
 done

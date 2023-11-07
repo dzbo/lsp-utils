@@ -1,0 +1,1 @@
+export { removeLastElementFromArrayAndMap } from './removeLastElementFromArrayAndMap';

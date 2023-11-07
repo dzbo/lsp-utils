@@ -1,0 +1,1 @@
+export { encodePermissions } from './encodePermissions';

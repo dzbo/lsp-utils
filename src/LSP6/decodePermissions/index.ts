@@ -1,0 +1,1 @@
+export { decodePermissions } from './decodePermissions';

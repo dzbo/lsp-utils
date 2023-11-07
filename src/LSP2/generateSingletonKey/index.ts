@@ -1,0 +1,1 @@
+export { generateSingletonKey } from './generateSingletonKey';
