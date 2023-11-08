@@ -12,8 +12,6 @@ do
         continue
     fi;
 
-    echo $utilPath
-
     # generate the `testPath` from `utilPath`
     ## remove the longest string from right to left
     ## which starts with "."

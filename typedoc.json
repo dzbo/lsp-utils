@@ -1,0 +1,19 @@
+{
+    "entryPoints": [
+        "src/IPFS/index.ts",
+        "src/LSP2/index.ts",
+        "src/LSP3/index.ts",
+        "src/LSP4/index.ts",
+        "src/LSP5/index.ts",
+        "src/LSP6/index.ts",
+        "src/LSP12/index.ts"
+    ],
+    "out": "docs",
+    "plugin": ["typedoc-plugin-markdown"],
+    "theme": "markdown",
+    "githubPages": false,
+    "cleanOutputDir": true,
+    "hideBreadcrumbs": true,
+    "hideInPageTOC": true,
+    "hideGenerator": true
+}

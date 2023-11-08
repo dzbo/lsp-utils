@@ -1,6 +1,4 @@
-@lukso/lsp-smart-contracts-utils / [Exports](modules.md)
-
-# LSP Utils &middot; [![npm version](https://img.shields.io/npm/v/@lukso/lsp-smart-contracts-utils.svg?style=flat)](https://www.npmjs.com/package/@lukso/lsp-smart-contracts-utils)
+# LSP Smart Contracts Utils &middot; [![npm version](https://img.shields.io/npm/v/@lukso/lsp-smart-contracts-utils.svg?style=flat)](https://www.npmjs.com/package/@lukso/lsp-smart-contracts-utils)
 
 This package was created with the intent to help developers to use `@lukso/lsp-smart-contracts`. Its purpose is to provide a series of helper functions for each LSP.
 
@@ -26,7 +24,7 @@ Alternatively you can also clone the repository and install its dependencies to 
 
 ```bash
 $ git clone https://github.com/lukso-network/lsp-smart-contracts-utils.git
-$ cd ./lsp-utils
+$ cd ./lsp-smart-contracts-utils
 $ npm install
 ```
 
@@ -64,4 +62,12 @@ const allowedCalls = encodeAllowedCalls(
 
 ## Documentation
 
-For more informations check the [`docs`](https://github.com/lukso-network/lsp-smart-contracts-utils/tree/develop/docs) folder
+For more informations check the [`docs`](./docs/modules.md) folder
+
+-   [IPFS](./docs/modules/IPFS.md)
+-   [LSP2](./docs/modules/LSP2.md)
+-   [LSP3](./docs/modules/LSP3.md)
+-   [LSP4](./docs/modules/LSP4.md)
+-   [LSP5](./docs/modules/LSP5.md)
+-   [LSP6](./docs/modules/LSP6.md)
+-   [LSP12](./docs/modules/LSP12.md)
