@@ -1,5 +1,5 @@
 import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
-import { BytesLike, Signer, concat, keccak256, toBeHex, toUtf8Bytes } from 'ethers';
+import { BytesLike, Signer, concat, toBeHex } from 'ethers';
 import ERC725 from '@erc725/erc725.js';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -76,36 +76,6 @@ describe('addIssuedAssets', () => {
         await expect(
             addIssuedAssets(issuerAddress, [], context.universalProfileOwner),
         ).to.be.rejectedWith('`newIssuedAssets` length is 0.');
-    });
-
-    it('should throw when `issuerAddress` is UTF8', async () => {
-        const issuerAddress = 'address';
-
-        await expect(
-            addIssuedAssets(issuerAddress, context.issuedAssets, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when `issuerAddress` is hex bigger than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 44);
-
-        await expect(
-            addIssuedAssets(issuerAddress, context.issuedAssets, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when `issuerAddress` is hex smaller than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 40);
-
-        await expect(
-            addIssuedAssets(issuerAddress, context.issuedAssets, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
     });
 
     describe('test overloads', () => {

@@ -1,6 +1,6 @@
 // import { expect } from 'chai';
 import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
-import { Signer, concat, keccak256, toBeHex, toUtf8Bytes } from 'ethers';
+import { Signer, concat, toBeHex } from 'ethers';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
 
@@ -10,7 +10,6 @@ import {
     UniversalProfile,
     LSP7Mintable__factory,
     LSP7Mintable,
-    LSP6KeyManager__factory,
 } from '../../typechain';
 
 // util
@@ -61,47 +60,6 @@ describe('getDigitalAssetCreators', () => {
             digitalAssetOwner: owner,
             digitalAsset,
         };
-    });
-
-    it('should throw when token address is not hex', async () => {
-        const digitalAssetAddress = 'address';
-
-        await expect(
-            getDigitalAssetCreators(digitalAssetAddress, ethers.provider),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
-    it('should throw when token address is hex with less than 20 bytes', async () => {
-        const digitalAssetAddress = keccak256(toUtf8Bytes('address')).substring(0, 40);
-
-        await expect(
-            getDigitalAssetCreators(digitalAssetAddress, ethers.provider),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
-    it('should throw when token address is hex with more than 20 bytes', async () => {
-        const digitalAssetAddress = keccak256(toUtf8Bytes('address')).substring(0, 44);
-
-        await expect(
-            getDigitalAssetCreators(digitalAssetAddress, ethers.provider),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
-    it('should throw when token address does not support `ERC725Y`', async () => {
-        const digitalAsset = await new LSP6KeyManager__factory(context.digitalAssetOwner).deploy(
-            context.digitalAssetOwner,
-        );
-        const digitalAssetAddress = await digitalAsset.getAddress();
-
-        await expect(
-            getDigitalAssetCreators(digitalAssetAddress, ethers.provider),
-        ).to.be.rejectedWith("Digital asset does not support 'ERC725Y'. Cannot use `getData()`");
     });
 
     it('should pass and return an empty array when token has no `LSP4Creators[]`', async () => {

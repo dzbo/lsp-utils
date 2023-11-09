@@ -1,14 +1,15 @@
-import { BytesLike, Provider, isAddress, isAddressable, isHexString, toNumber } from 'ethers';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { BytesLike, Provider, isAddress, isHexString, toNumber } from 'ethers';
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y__factory, ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain';
 
 // constants
 import {
     DigitalAsset,
     generateArrayElementKeyAtIndex,
     generateMappingKey,
+    getErc725yContract,
     isValidArrayLengthValue,
 } from '../..';
 
@@ -30,33 +31,13 @@ import {
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
  */
 export async function getIssuedAssets(issuer: ERC725Y): Promise<DigitalAsset[]>;
-export async function getIssuedAssets(issuer: ERC725Y, provider: Provider): Promise<DigitalAsset[]>;
 export async function getIssuedAssets(
-    issuer: BytesLike | string,
-    provider: Provider,
-): Promise<DigitalAsset[]>;
-export async function getIssuedAssets(
-    issuer: ERC725Y | BytesLike | string,
+    issuer: ERC725Y | BytesLike,
     provider?: Provider,
 ): Promise<DigitalAsset[]> {
-    let issuerContract: ERC725Y;
-    if (isAddress(issuer)) {
-        issuerContract = ERC725Y__factory.connect(issuer, provider);
-    } else if (isAddressable(issuer)) {
-        if (provider) {
-            issuerContract = issuer.connect(provider);
-        } else {
-            issuerContract = issuer;
-        }
-    } else {
-        throw new Error(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuer}'`,
-        );
-    }
-
-    if (!(await issuerContract.supportsInterface(INTERFACE_IDS.ERC725Y))) {
-        throw new Error("Issuer does not support 'ERC725Y'. Cannot use `getData()`");
-    }
+    const issuerContract: ERC725Y = provider
+        ? await getErc725yContract(issuer, provider)
+        : await getErc725yContract(issuer);
 
     const issuedAssetsLengthHex = await issuerContract.getData(
         ERC725YDataKeys.LSP12['LSP12IssuedAssets[]'].length,

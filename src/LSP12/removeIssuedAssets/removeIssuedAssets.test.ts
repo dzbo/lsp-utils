@@ -1,5 +1,5 @@
 import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
-import { BytesLike, Signer, keccak256, toBeHex, toUtf8Bytes } from 'ethers';
+import { BytesLike, Signer, toBeHex } from 'ethers';
 import ERC725 from '@erc725/erc725.js';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -70,36 +70,6 @@ describe('removeIssuedAssets', () => {
         };
     });
 
-    it('should throw when `issuerAddress` is UTF8', async () => {
-        const issuerAddress = 'address';
-
-        await expect(
-            removeIssuedAssets(issuerAddress, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when `issuerAddress` is hex bigger than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 44);
-
-        await expect(
-            removeIssuedAssets(issuerAddress, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when `issuerAddress` is hex smaller than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 40);
-
-        await expect(
-            removeIssuedAssets(issuerAddress, context.universalProfileOwner),
-        ).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
     describe('valid case', () => {
         let dataKeys: BytesLike[];
         let dataValues: BytesLike[];
@@ -126,7 +96,7 @@ describe('removeIssuedAssets', () => {
             );
         });
 
-        it('should pass and add new creators (overload: issuer address + signer)', async () => {
+        it('should pass and remove creators (overload: issuer address + signer)', async () => {
             await removeIssuedAssets(
                 await context.universalProfile.getAddress(),
                 context.universalProfileOwner,
@@ -135,13 +105,13 @@ describe('removeIssuedAssets', () => {
             expect(await context.universalProfile.getDataBatch(dataKeys)).to.deep.equal(dataValues);
         });
 
-        it('should pass and add new creators (overload: issuer contract + signer)', async () => {
+        it('should pass and remove creators (overload: issuer contract + signer)', async () => {
             await removeIssuedAssets(context.universalProfile, context.universalProfileOwner);
 
             expect(await context.universalProfile.getDataBatch(dataKeys)).to.deep.equal(dataValues);
         });
 
-        it('should pass and add new creators (overload: issuer contract)', async () => {
+        it('should pass and remove creators (overload: issuer contract)', async () => {
             await removeIssuedAssets(
                 context.universalProfile.connect(context.universalProfileOwner),
             );

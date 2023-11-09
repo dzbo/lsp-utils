@@ -1,21 +1,17 @@
 import ERC725 from '@erc725/erc725.js';
-import {
-    BytesLike,
-    Signer,
-    Wallet,
-    concat,
-    isAddress,
-    isAddressable,
-    toBeHex,
-    toNumber,
-} from 'ethers';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { BytesLike, Signer, Wallet, concat, toBeHex, toNumber } from 'ethers';
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y, ERC725Y__factory } from '../../typechain';
+import { ERC725Y } from '../../typechain';
 
 // utils
-import { Issuer, generateArrayElementKeyAtIndex, isValidArrayLengthValue } from '../..';
+import {
+    Issuer,
+    generateArrayElementKeyAtIndex,
+    getErc725yContract,
+    isValidArrayLengthValue,
+} from '../..';
 
 /**
  * Add LSP4 Creators to the digital asset contract that supports ERC725Y.
@@ -38,17 +34,7 @@ export async function addDigitalAssetCreators(
     newCreators: Issuer[],
 ): Promise<void>;
 export async function addDigitalAssetCreators(
-    digitalAsset: ERC725Y,
-    newCreators: Issuer[],
-    signer: Signer | Wallet,
-): Promise<void>;
-export async function addDigitalAssetCreators(
-    digitalAsset: BytesLike | string,
-    newCreators: Issuer[],
-    signer: Signer | Wallet,
-): Promise<void>;
-export async function addDigitalAssetCreators(
-    digitalAsset: ERC725Y | BytesLike | string,
+    digitalAsset: ERC725Y | BytesLike,
     newCreators: Issuer[],
     signer?: Signer | Wallet,
 ): Promise<void> {
@@ -56,26 +42,9 @@ export async function addDigitalAssetCreators(
         throw new Error('`newCreators` length is 0.');
     }
 
-    let digitalAssetContract: ERC725Y;
-    if (isAddress(digitalAsset)) {
-        digitalAssetContract = ERC725Y__factory.connect(digitalAsset, signer);
-    } else if (isAddressable(digitalAsset)) {
-        if (signer) {
-            digitalAssetContract = digitalAsset.connect(signer);
-        } else {
-            digitalAssetContract = digitalAsset;
-        }
-    } else {
-        throw new Error(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAsset}'`,
-        );
-    }
-
-    if (!(await digitalAssetContract.supportsInterface(INTERFACE_IDS.ERC725Y))) {
-        throw new Error(
-            "Digital asset does not support 'ERC725Y'. Cannot use `getData()` or `setData()`",
-        );
-    }
+    const digitalAssetContract: ERC725Y = signer
+        ? await getErc725yContract(digitalAsset, signer)
+        : await getErc725yContract(digitalAsset);
 
     const creatorsLengthHex = await digitalAssetContract.getData(
         ERC725YDataKeys.LSP4['LSP4Creators[]'].length,

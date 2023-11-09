@@ -1,6 +1,6 @@
 // import { expect } from 'chai';
 import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
-import { Signer, concat, keccak256, toBeHex, toUtf8Bytes } from 'ethers';
+import { Signer, concat, toBeHex } from 'ethers';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
 
@@ -10,7 +10,6 @@ import {
     UniversalProfile,
     LSP7Mintable__factory,
     LSP7Mintable,
-    LSP6KeyManager__factory,
 } from '../../typechain';
 
 // util
@@ -71,41 +70,6 @@ describe('getIssuedAssets', () => {
             secondIssuedAssetOwner: owner,
             secondIssuedAsset,
         };
-    });
-
-    it('should throw when token address is not hex', async () => {
-        const issuerAddress = 'address';
-
-        await expect(getIssuedAssets(issuerAddress, ethers.provider)).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when token address is hex with less than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 40);
-
-        await expect(getIssuedAssets(issuerAddress, ethers.provider)).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when token address is hex with more than 20 bytes', async () => {
-        const issuerAddress = keccak256(toUtf8Bytes('address')).substring(0, 44);
-
-        await expect(getIssuedAssets(issuerAddress, ethers.provider)).to.be.rejectedWith(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuerAddress}'`,
-        );
-    });
-
-    it('should throw when token address does not support `ERC725Y`', async () => {
-        const issuer = await new LSP6KeyManager__factory(context.universalProfileOwner).deploy(
-            context.universalProfileOwner,
-        );
-        const issuerAddress = await issuer.getAddress();
-
-        await expect(getIssuedAssets(issuerAddress, ethers.provider)).to.be.rejectedWith(
-            "Issuer does not support 'ERC725Y'. Cannot use `getData()`",
-        );
     });
 
     it('should pass and return an empty array when token has no `LSP12IssuedAssets[]`', async () => {

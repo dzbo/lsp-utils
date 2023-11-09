@@ -1,6 +1,9 @@
 // ------ Constants ------
 export * from './constants';
 
+// ------ Helpers ------
+export { getErc725yContract } from './helpers';
+
 // ------ TypeChain ------
 export * from './typechain';
 

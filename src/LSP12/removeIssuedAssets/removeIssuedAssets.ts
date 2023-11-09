@@ -1,12 +1,12 @@
 import ERC725 from '@erc725/erc725.js';
-import { BytesLike, Signer, Wallet, isAddress, isAddressable, toBeHex, toNumber } from 'ethers';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { BytesLike, Signer, Wallet, isAddress, toBeHex, toNumber } from 'ethers';
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y__factory, ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain';
 
 // utils
-import { generateArrayElementKeyAtIndex, isValidArrayLengthValue } from '../..';
+import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthValue } from '../..';
 
 /**
  * Remove the LSP12 Issued Assets of a issuer contract that supports ERC725Y.
@@ -25,35 +25,13 @@ import { generateArrayElementKeyAtIndex, isValidArrayLengthValue } from '../..';
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
  */
 export async function removeIssuedAssets(issuer: ERC725Y): Promise<void>;
-export async function removeIssuedAssets(issuer: ERC725Y, signer: Signer | Wallet): Promise<void>;
 export async function removeIssuedAssets(
-    issuer: BytesLike | string,
-    signer: Signer | Wallet,
-): Promise<void>;
-export async function removeIssuedAssets(
-    issuer: ERC725Y | BytesLike | string,
+    issuer: ERC725Y | BytesLike,
     signer?: Signer | Wallet,
 ): Promise<void> {
-    let issuerContract: ERC725Y;
-    if (isAddress(issuer)) {
-        issuerContract = ERC725Y__factory.connect(issuer, signer);
-    } else if (isAddressable(issuer)) {
-        if (signer) {
-            issuerContract = issuer.connect(signer);
-        } else {
-            issuerContract = issuer;
-        }
-    } else {
-        throw new Error(
-            `The parameter \`issuerAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${issuer}'`,
-        );
-    }
-
-    if (!(await issuerContract.supportsInterface(INTERFACE_IDS.ERC725Y))) {
-        throw new Error(
-            "Digital asset does not support 'ERC725Y'. Cannot use `getData()` or `setData()`",
-        );
-    }
+    const issuerContract: ERC725Y = signer
+        ? await getErc725yContract(issuer, signer)
+        : await getErc725yContract(issuer);
 
     const issuedAssetsLengthHex = await issuerContract.getData(
         ERC725YDataKeys.LSP12['LSP12IssuedAssets[]'].length,

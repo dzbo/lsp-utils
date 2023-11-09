@@ -1,14 +1,15 @@
-import { BytesLike, Provider, isAddress, isAddressable, isHexString, toNumber } from 'ethers';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { BytesLike, Provider, isAddress, isHexString, toNumber } from 'ethers';
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y__factory, ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain';
 
 // constants
 import {
     Issuer,
     generateArrayElementKeyAtIndex,
     generateMappingKey,
+    getErc725yContract,
     isValidArrayLengthValue,
 } from '../..';
 
@@ -31,35 +32,12 @@ import {
  */
 export async function getDigitalAssetCreators(digitalAsset: ERC725Y): Promise<Issuer[]>;
 export async function getDigitalAssetCreators(
-    digitalAsset: ERC725Y,
-    provider: Provider,
-): Promise<Issuer[]>;
-export async function getDigitalAssetCreators(
-    digitalAsset: BytesLike | string,
-    provider: Provider,
-): Promise<Issuer[]>;
-export async function getDigitalAssetCreators(
-    digitalAsset: ERC725Y | BytesLike | string,
+    digitalAsset: ERC725Y | BytesLike,
     provider?: Provider,
 ): Promise<Issuer[]> {
-    let digitalAssetContract: ERC725Y;
-    if (isAddress(digitalAsset)) {
-        digitalAssetContract = ERC725Y__factory.connect(digitalAsset, provider);
-    } else if (isAddressable(digitalAsset)) {
-        if (provider) {
-            digitalAssetContract = digitalAsset.connect(provider);
-        } else {
-            digitalAssetContract = digitalAsset;
-        }
-    } else {
-        throw new Error(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAsset}'`,
-        );
-    }
-
-    if (!(await digitalAssetContract.supportsInterface(INTERFACE_IDS.ERC725Y))) {
-        throw new Error("Digital asset does not support 'ERC725Y'. Cannot use `getData()`");
-    }
+    const digitalAssetContract: ERC725Y = provider
+        ? await getErc725yContract(digitalAsset, provider)
+        : await getErc725yContract(digitalAsset);
 
     const creatorsLengthHex = await digitalAssetContract.getData(
         ERC725YDataKeys.LSP4['LSP4Creators[]'].length,

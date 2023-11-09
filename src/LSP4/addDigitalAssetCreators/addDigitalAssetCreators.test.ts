@@ -1,5 +1,5 @@
 import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
-import { BytesLike, Signer, concat, keccak256, toBeHex, toUtf8Bytes } from 'ethers';
+import { BytesLike, Signer, concat, toBeHex } from 'ethers';
 import ERC725 from '@erc725/erc725.js';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -68,59 +68,10 @@ describe('addDigitalAssetCreators', () => {
         ).to.be.rejectedWith('`newCreators` length is 0.');
     });
 
-    it('should throw when calling with `newCreators` as an empty array', async () => {
-        const digitalAssetAddress = await context.digitalAsset.getAddress();
-
-        await expect(
-            addDigitalAssetCreators(digitalAssetAddress, [], context.digitalAssetOwner),
-        ).to.be.rejectedWith('`newCreators` length is 0.');
-    });
-
-    it('should throw when `digitalAssetAddress` is UTF8', async () => {
-        const digitalAssetAddress = 'address';
-
-        await expect(
-            addDigitalAssetCreators(
-                digitalAssetAddress,
-                context.creators,
-                context.digitalAssetOwner,
-            ),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
-    it('should throw when `digitalAssetAddress` is hex bigger than 20 bytes', async () => {
-        const digitalAssetAddress = keccak256(toUtf8Bytes('address')).substring(0, 44);
-
-        await expect(
-            addDigitalAssetCreators(
-                digitalAssetAddress,
-                context.creators,
-                context.digitalAssetOwner,
-            ),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
-    it('should throw when `digitalAssetAddress` is hex smaller than 20 bytes', async () => {
-        const digitalAssetAddress = keccak256(toUtf8Bytes('address')).substring(0, 40);
-
-        await expect(
-            addDigitalAssetCreators(
-                digitalAssetAddress,
-                context.creators,
-                context.digitalAssetOwner,
-            ),
-        ).to.be.rejectedWith(
-            `The parameter \`digitalAssetAddress\` is not a valid address nor a valid contract instance of \`ERC725Y\`. Value: '${digitalAssetAddress}'`,
-        );
-    });
-
     describe('test overloads', () => {
         let dataKeys: BytesLike[];
         let dataValues: BytesLike[];
+
         before(() => {
             dataKeys = [
                 ERC725YDataKeys.LSP4['LSP4Creators[]'].length,
@@ -143,6 +94,7 @@ describe('addDigitalAssetCreators', () => {
                 ]),
             ];
         });
+
         afterEach('remove the LSP4 Creators', async () => {
             await removeDigitalAssetCreators(
                 context.digitalAsset.connect(context.digitalAssetOwner),
