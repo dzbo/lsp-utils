@@ -38,7 +38,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-5-ReceivedAssets.md
 
 #### Defined in
 
-[LSP5/generateReceivedAssetKeys/generateReceivedAssetKeys.ts:30](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP5/generateReceivedAssetKeys/generateReceivedAssetKeys.ts#L30)
+[LSP5/generateReceivedAssetKeys/generateReceivedAssetKeys.ts:30](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP5/generateReceivedAssetKeys/generateReceivedAssetKeys.ts#L30)
 
 ---
 
@@ -77,4 +77,4 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-5-ReceivedAssets.md
 
 #### Defined in
 
-[LSP5/generateSentAssetKeys/generateSentAssetKeys.ts:32](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP5/generateSentAssetKeys/generateSentAssetKeys.ts#L32)
+[LSP5/generateSentAssetKeys/generateSentAssetKeys.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP5/generateSentAssetKeys/generateSentAssetKeys.ts#L32)

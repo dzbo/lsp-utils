@@ -46,7 +46,7 @@ getMetadata(UniversalProfile) //=>
 
 #### Defined in
 
-[LSP3/getProfileMetadata/getProfileMetadata.ts:44](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L44)
+[LSP3/getProfileMetadata/getProfileMetadata.ts:44](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L44)
 
 ▸ **getProfileMetadata**(`unviersalProfile`, `provider`): `Promise`\<`LSP3ProfileMetadata`\>
 
@@ -63,7 +63,7 @@ getMetadata(UniversalProfile) //=>
 
 #### Defined in
 
-[LSP3/getProfileMetadata/getProfileMetadata.ts:47](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L47)
+[LSP3/getProfileMetadata/getProfileMetadata.ts:47](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L47)
 
 ---
 
@@ -100,4 +100,4 @@ isProfileMetadata({ description: "", links: [], name: "", tags: [] }) //=> false
 
 #### Defined in
 
-[LSP3/isProfileMetadata/isProfileMetadata.ts:16](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP3/isProfileMetadata/isProfileMetadata.ts#L16)
+[LSP3/isProfileMetadata/isProfileMetadata.ts:16](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/isProfileMetadata/isProfileMetadata.ts#L16)

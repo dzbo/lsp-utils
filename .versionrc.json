@@ -33,6 +33,6 @@
             "hidden": true
         }
     ],
-    "commitUrlFormat": "https://github.com/lukso-network/lsp-smart-contracts-utils/commits/{{hash}}",
-    "compareUrlFormat": "https://github.com/lukso-network/lsp-smart-contracts-utils/compare/{{previousTag}}...{{currentTag}}"
+    "commitUrlFormat": "https://github.com/lukso-network/lsp-utils/commits/{{hash}}",
+    "compareUrlFormat": "https://github.com/lukso-network/lsp-utils/compare/{{previousTag}}...{{currentTag}}"
 }

@@ -41,7 +41,7 @@ createValidityTimestamp(5, 10) //=> `0x00000000000000000000000000000005000000000
 
 #### Defined in
 
-[LSP6/createValidityTimestamp/createValidityTimestamp.ts:21](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/createValidityTimestamp/createValidityTimestamp.ts#L21)
+[LSP6/createValidityTimestamp/createValidityTimestamp.ts:21](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/createValidityTimestamp/createValidityTimestamp.ts#L21)
 
 ---
 
@@ -106,7 +106,7 @@ decodeAllowedCalls("0x002000000002cafecafecafecafecafecafecafecafecafecafe24871b
 
 #### Defined in
 
-[LSP6/decodeAllowedCalls/decodeAllowedCalls.ts:37](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodeAllowedCalls/decodeAllowedCalls.ts#L37)
+[LSP6/decodeAllowedCalls/decodeAllowedCalls.ts:37](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodeAllowedCalls/decodeAllowedCalls.ts#L37)
 
 ---
 
@@ -154,7 +154,7 @@ decodeAllowedERC725YDataKeys("0x0002cafe000abeefdeadbeef0000cafe") //=>
 
 #### Defined in
 
-[LSP6/decodeAllowedERC725YDataKeys/decodeAllowedERC725YDataKeys.ts:27](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodeAllowedERC725YDataKeys/decodeAllowedERC725YDataKeys.ts#L27)
+[LSP6/decodeAllowedERC725YDataKeys/decodeAllowedERC725YDataKeys.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodeAllowedERC725YDataKeys/decodeAllowedERC725YDataKeys.ts#L27)
 
 ---
 
@@ -218,7 +218,7 @@ decodePermissions([
 
 #### Defined in
 
-[LSP6/decodePermissions/decodePermissions.ts:53](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L53)
+[LSP6/decodePermissions/decodePermissions.ts:53](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L53)
 
 ▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`BytesLike`\>
 
@@ -235,7 +235,7 @@ decodePermissions([
 
 #### Defined in
 
-[LSP6/decodePermissions/decodePermissions.ts:54](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L54)
+[LSP6/decodePermissions/decodePermissions.ts:54](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L54)
 
 ▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`bigint`\>
 
@@ -252,7 +252,7 @@ decodePermissions([
 
 #### Defined in
 
-[LSP6/decodePermissions/decodePermissions.ts:58](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L58)
+[LSP6/decodePermissions/decodePermissions.ts:58](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L58)
 
 ▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `boolean`[]
 
@@ -269,7 +269,7 @@ decodePermissions([
 
 #### Defined in
 
-[LSP6/decodePermissions/decodePermissions.ts:62](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L62)
+[LSP6/decodePermissions/decodePermissions.ts:62](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L62)
 
 ▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`LSP6PermissionName`\>
 
@@ -286,7 +286,7 @@ decodePermissions([
 
 #### Defined in
 
-[LSP6/decodePermissions/decodePermissions.ts:66](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L66)
+[LSP6/decodePermissions/decodePermissions.ts:66](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L66)
 
 ---
 
@@ -346,7 +346,7 @@ encodeAllowedCalls(
 
 #### Defined in
 
-[LSP6/encodeAllowedCalls/encodeAllowedCalls.ts:39](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/encodeAllowedCalls/encodeAllowedCalls.ts#L39)
+[LSP6/encodeAllowedCalls/encodeAllowedCalls.ts:39](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/encodeAllowedCalls/encodeAllowedCalls.ts#L39)
 
 ---
 
@@ -392,7 +392,7 @@ encodeAllowedERC725YDataKeys([
 
 #### Defined in
 
-[LSP6/encodeAllowedERC725YDataKeys/encodeAllowedERC725YDataKeys.ts:25](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/encodeAllowedERC725YDataKeys/encodeAllowedERC725YDataKeys.ts#L25)
+[LSP6/encodeAllowedERC725YDataKeys/encodeAllowedERC725YDataKeys.ts:25](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/encodeAllowedERC725YDataKeys/encodeAllowedERC725YDataKeys.ts#L25)
 
 ---
 
@@ -446,4 +446,4 @@ encodePermissions([
 
 #### Defined in
 
-[LSP6/encodePermissions/encodePermissions.ts:35](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP6/encodePermissions/encodePermissions.ts#L35)
+[LSP6/encodePermissions/encodePermissions.ts:35](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/encodePermissions/encodePermissions.ts#L35)

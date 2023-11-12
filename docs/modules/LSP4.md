@@ -35,7 +35,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:36](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L36)
+[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:36](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L36)
 
 ▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`, `signer`): `Promise`\<`void`\>
 
@@ -53,7 +53,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:40](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L40)
+[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:40](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L40)
 
 ▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`, `signer`): `Promise`\<`void`\>
 
@@ -71,7 +71,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:45](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L45)
+[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:45](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L45)
 
 ---
 
@@ -109,7 +109,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L32)
+[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L32)
 
 ▸ **getDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`Issuer`[]\>
 
@@ -126,7 +126,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:33](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L33)
+[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:33](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L33)
 
 ▸ **getDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`Issuer`[]\>
 
@@ -143,7 +143,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:37](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L37)
+[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:37](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L37)
 
 ---
 
@@ -180,7 +180,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:27](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L27)
+[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L27)
 
 ▸ **removeDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`void`\>
 
@@ -197,7 +197,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:28](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L28)
+[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L28)
 
 ▸ **removeDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`void`\>
 
@@ -214,4 +214,4 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L32)
+[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L32)

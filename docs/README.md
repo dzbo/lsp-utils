@@ -1,4 +1,4 @@
-# LSP Smart Contracts Utils &middot; [![npm version](https://img.shields.io/npm/v/@lukso/lsp-smart-contracts-utils.svg?style=flat)](https://www.npmjs.com/package/@lukso/lsp-smart-contracts-utils)
+# LSP Smart Contracts Utils &middot; [![npm version](https://img.shields.io/npm/v/@lukso/lsp-utils.svg?style=flat)](https://www.npmjs.com/package/@lukso/lsp-utils)
 
 This package was created with the intent to help developers to use `@lukso/lsp-smart-contracts`. Its purpose is to provide a series of helper functions for each LSP.
 
@@ -12,10 +12,10 @@ This package was created with the intent to help developers to use `@lukso/lsp-s
 
 ### npm
 
-`@lukso/lsp-smart-contracts-utils` is available as a [npm package](https://www.npmjs.com/package/@lukso/lsp-smart-contracts-utils).
+`@lukso/lsp-utils` is available as a [npm package](https://www.npmjs.com/package/@lukso/lsp-utils).
 
 ```bash
-npm install @lukso/lsp-smart-contracts-utils
+npm install @lukso/lsp-utils
 ```
 
 ### cloning the repository
@@ -23,8 +23,8 @@ npm install @lukso/lsp-smart-contracts-utils
 Alternatively you can also clone the repository and install its dependencies to start using the smart contracts.
 
 ```bash
-$ git clone https://github.com/lukso-network/lsp-smart-contracts-utils.git
-$ cd ./lsp-smart-contracts-utils
+$ git clone https://github.com/lukso-network/lsp-utils.git
+$ cd ./lsp-utils
 $ npm install
 ```
 
@@ -37,7 +37,7 @@ You can use the utils by importing them as follow:
 #### ES6 Modules:
 
 ```javascript
-import { encodeAllowedCalls } from '@lukso/lsp-smart-contracts-utils/dist/lib/es6';
+import { encodeAllowedCalls } from '@lukso/lsp-utils/dist/lib/es6';
 
 const allowedCalls = encodeAllowedCalls(
     allowedInteractions,
@@ -50,7 +50,7 @@ const allowedCalls = encodeAllowedCalls(
 #### CommonJS
 
 ```javascript
-cosnt { encodeAllowedCalls } = require('@lukso/lsp-smart-contracts-utils/dist/lib/es5');
+cosnt { encodeAllowedCalls } = require('@lukso/lsp-utils/dist/lib/es5');
 
 const allowedCalls = encodeAllowedCalls(
     allowedInteractions,

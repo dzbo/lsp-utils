@@ -60,7 +60,7 @@ decodeAssetUrl("0x6f357c6a2a04850096912391bbb0966a624519e8f5d797df2a2c47425e892c
 
 #### Defined in
 
-[LSP2/decodeAssetUrl/decodeAssetUrl.ts:35](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/decodeAssetUrl/decodeAssetUrl.ts#L35)
+[LSP2/decodeAssetUrl/decodeAssetUrl.ts:35](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/decodeAssetUrl/decodeAssetUrl.ts#L35)
 
 ---
 
@@ -122,7 +122,7 @@ decodeJsonUrl("0x6f357c6a4dade694d7dd4081f46073e99ce898a9b53cf6988452904de7db5cc
 
 #### Defined in
 
-[LSP2/decodeJsonUrl/decodeJsonUrl.ts:35](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/decodeJsonUrl/decodeJsonUrl.ts#L35)
+[LSP2/decodeJsonUrl/decodeJsonUrl.ts:35](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/decodeJsonUrl/decodeJsonUrl.ts#L35)
 
 ---
 
@@ -166,7 +166,7 @@ encodeAssetUrl(
 
 #### Defined in
 
-[LSP2/encodeAssetUrl/encodeAssetUrl.ts:23](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/encodeAssetUrl/encodeAssetUrl.ts#L23)
+[LSP2/encodeAssetUrl/encodeAssetUrl.ts:23](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/encodeAssetUrl/encodeAssetUrl.ts#L23)
 
 ---
 
@@ -210,7 +210,7 @@ encodeJsonUrl(
 
 #### Defined in
 
-[LSP2/encodeJsonUrl/encodeJsonUrl.ts:23](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/encodeJsonUrl/encodeJsonUrl.ts#L23)
+[LSP2/encodeJsonUrl/encodeJsonUrl.ts:23](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/encodeJsonUrl/encodeJsonUrl.ts#L23)
 
 ---
 
@@ -253,7 +253,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/generateArrayElementKeyAtIndex/generateArrayElementKeyAtIndex.ts:22](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/generateArrayElementKeyAtIndex/generateArrayElementKeyAtIndex.ts#L22)
+[LSP2/generateArrayElementKeyAtIndex/generateArrayElementKeyAtIndex.ts:22](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/generateArrayElementKeyAtIndex/generateArrayElementKeyAtIndex.ts#L22)
 
 ---
 
@@ -299,7 +299,7 @@ generateArrayKey('RandomArrayDataKey[]'); //=> keccak256("RandomArrayDataKey[]")
 
 #### Defined in
 
-[LSP2/generateArrayKey/generateArrayKey.ts:20](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/generateArrayKey/generateArrayKey.ts#L20)
+[LSP2/generateArrayKey/generateArrayKey.ts:20](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/generateArrayKey/generateArrayKey.ts#L20)
 
 ---
 
@@ -361,7 +361,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/generateMappingKey/generateMappingKey.ts:39](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/generateMappingKey/generateMappingKey.ts#L39)
+[LSP2/generateMappingKey/generateMappingKey.ts:39](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/generateMappingKey/generateMappingKey.ts#L39)
 
 ---
 
@@ -442,7 +442,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/generateMappingWithGroupingKey/generateMappingWithGroupingKey.ts:57](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/generateMappingWithGroupingKey/generateMappingWithGroupingKey.ts#L57)
+[LSP2/generateMappingWithGroupingKey/generateMappingWithGroupingKey.ts:57](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/generateMappingWithGroupingKey/generateMappingWithGroupingKey.ts#L57)
 
 ---
 
@@ -480,7 +480,7 @@ generateSingletonKey('RandomDataKey'); //=> keccak256("RandomKeyName") = "0xb0c9
 
 #### Defined in
 
-[LSP2/generateSingletonKey/generateSingletonKey.ts:17](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/generateSingletonKey/generateSingletonKey.ts#L17)
+[LSP2/generateSingletonKey/generateSingletonKey.ts:17](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/generateSingletonKey/generateSingletonKey.ts#L17)
 
 ---
 
@@ -520,7 +520,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/isCompactBytesArray/isCompactBytesArray.ts:19](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/isCompactBytesArray/isCompactBytesArray.ts#L19)
+[LSP2/isCompactBytesArray/isCompactBytesArray.ts:19](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/isCompactBytesArray/isCompactBytesArray.ts#L19)
 
 ---
 
@@ -561,7 +561,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/isValidArrayLengthValue/isValidArrayLengthValue.ts:20](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/isValidArrayLengthValue/isValidArrayLengthValue.ts#L20)
+[LSP2/isValidArrayLengthValue/isValidArrayLengthValue.ts:20](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/isValidArrayLengthValue/isValidArrayLengthValue.ts#L20)
 
 ---
 
@@ -604,7 +604,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts:28](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts#L28)
+[LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts#L28)
 
 ---
 
@@ -650,4 +650,4 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/removeLastElementFromArrayAndMap/removeLastElementFromArrayAndMap.ts:20](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP2/removeLastElementFromArrayAndMap/removeLastElementFromArrayAndMap.ts#L20)
+[LSP2/removeLastElementFromArrayAndMap/removeLastElementFromArrayAndMap.ts:20](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/removeLastElementFromArrayAndMap/removeLastElementFromArrayAndMap.ts#L20)

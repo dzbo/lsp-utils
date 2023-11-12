@@ -33,4 +33,4 @@ validateIpfsUrl(''); //=> ''
 
 #### Defined in
 
-[IPFS/validateIpfsUrl/validateIpfsUrl.ts:15](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/IPFS/validateIpfsUrl/validateIpfsUrl.ts#L15)
+[IPFS/validateIpfsUrl/validateIpfsUrl.ts:15](https://github.com/lukso-network/lsp-utils/blob/main/src/IPFS/validateIpfsUrl/validateIpfsUrl.ts#L15)

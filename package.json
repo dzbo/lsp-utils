@@ -1,16 +1,16 @@
 {
-    "name": "@lukso/lsp-smart-contracts-utils",
+    "name": "@lukso/lsp-utils",
     "version": "0.0.2",
     "description": "A set of TypeScript/JavaScript utils for LUKSO Standard Proposals (LSPs)",
     "author": "Daniel Afteni (B00ste)",
     "license": "MIT",
-    "homepage": "https://github.com/lukso-network/lsp-smart-contracts-utils#readme",
+    "homepage": "https://github.com/lukso-network/lsp-utils#readme",
     "bugs": {
-        "url": "https://github.com/lukso-network/lsp-smart-contracts-utils/issues"
+        "url": "https://github.com/lukso-network/lsp-utils/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/lukso-network/lsp-smart-contracts-utils.git"
+        "url": "git+https://github.com/lukso-network/lsp-utils.git"
     },
     "files": [
         "dist",

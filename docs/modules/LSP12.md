@@ -35,7 +35,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/addIssuedAssets/addIssuedAssets.ts:36](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L36)
+[LSP12/addIssuedAssets/addIssuedAssets.ts:36](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L36)
 
 ▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`, `signer`): `Promise`\<`void`\>
 
@@ -53,7 +53,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/addIssuedAssets/addIssuedAssets.ts:40](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L40)
+[LSP12/addIssuedAssets/addIssuedAssets.ts:40](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L40)
 
 ▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`, `signer`): `Promise`\<`void`\>
 
@@ -71,7 +71,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/addIssuedAssets/addIssuedAssets.ts:45](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L45)
+[LSP12/addIssuedAssets/addIssuedAssets.ts:45](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L45)
 
 ---
 
@@ -109,7 +109,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/getIssuedAssets/getIssuedAssets.ts:32](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L32)
+[LSP12/getIssuedAssets/getIssuedAssets.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L32)
 
 ▸ **getIssuedAssets**(`issuer`, `provider`): `Promise`\<`DigitalAsset`[]\>
 
@@ -126,7 +126,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/getIssuedAssets/getIssuedAssets.ts:33](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L33)
+[LSP12/getIssuedAssets/getIssuedAssets.ts:33](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L33)
 
 ▸ **getIssuedAssets**(`issuer`, `provider`): `Promise`\<`DigitalAsset`[]\>
 
@@ -143,7 +143,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/getIssuedAssets/getIssuedAssets.ts:34](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L34)
+[LSP12/getIssuedAssets/getIssuedAssets.ts:34](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L34)
 
 ---
 
@@ -180,7 +180,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/removeIssuedAssets/removeIssuedAssets.ts:27](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L27)
+[LSP12/removeIssuedAssets/removeIssuedAssets.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L27)
 
 ▸ **removeIssuedAssets**(`issuer`, `signer`): `Promise`\<`void`\>
 
@@ -197,7 +197,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/removeIssuedAssets/removeIssuedAssets.ts:28](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L28)
+[LSP12/removeIssuedAssets/removeIssuedAssets.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L28)
 
 ▸ **removeIssuedAssets**(`issuer`, `signer`): `Promise`\<`void`\>
 
@@ -214,4 +214,4 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/removeIssuedAssets/removeIssuedAssets.ts:29](https://github.com/lukso-network/lsp-smart-contracts-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L29)
+[LSP12/removeIssuedAssets/removeIssuedAssets.ts:29](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L29)
