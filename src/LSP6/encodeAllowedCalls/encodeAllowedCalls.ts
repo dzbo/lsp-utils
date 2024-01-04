@@ -56,7 +56,10 @@ export function encodeAllowedCalls(
         );
     }
 
-    let result = '0x0020';
+    // 32 in hex (2 bytes), required length for an allowed call
+    const allowedCallLength = '0020';
+
+    let result = '0x';
 
     for (let ii = 0; ii < allowedStandards.length; ii++) {
         // remove "0x" prefixes
@@ -121,11 +124,13 @@ export function encodeAllowedCalls(
 
         const allowedFunction = allowedFunctions[ii].toString().substring(2);
 
-        result = result + allowedInteraction + allowedAddress + allowedStandard + allowedFunction;
-
-        if (ii != allowedStandards.length - 1) {
-            result = result + '0020';
-        }
+        result =
+            result +
+            allowedCallLength +
+            allowedInteraction +
+            allowedAddress +
+            allowedStandard +
+            allowedFunction;
     }
 
     return result;
