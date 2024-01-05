@@ -67,9 +67,13 @@ export async function getProfileMetadata(
 
     const profileDataURL = validateIpfsUrl(JSONURL.url);
 
-    const profileData: LSP3ProfileMetadata = await fetch(profileDataURL).then((response) =>
-        response.json(),
-    );
+    let profileData: LSP3ProfileMetadata;
+    try {
+        const response = await fetch(profileDataURL);
+        profileData = await response.json();
+    } catch {
+        throw new Error("Couldn't fetch Profile Data from the url.");
+    }
 
     if (!isProfileMetadata(profileData)) {
         throw new Error('Fetched data is not an `LSP3ProfileMetadata` object.');
