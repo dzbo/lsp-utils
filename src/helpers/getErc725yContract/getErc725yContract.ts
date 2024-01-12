@@ -2,6 +2,14 @@ import { BytesLike, Provider, Signer, Wallet, isAddress, isAddressable } from 'e
 import { ERC725Y, ERC725Y__factory } from '../..';
 import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
 
+/**
+ * Returns a contract instance of ERC725
+ *
+ * @since v0.0.2
+ * @category Helpers
+ * @param erc725y Contract address or instance.
+ * @param signer Signer or provider used for connecting to the contract on the correct network.
+ */
 export async function getErc725yContract(erc725y: ERC725Y): Promise<ERC725Y>;
 export async function getErc725yContract(
     erc725y: ERC725Y | BytesLike,
