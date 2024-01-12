@@ -4,7 +4,7 @@ import ERC725, { ERC725JSONSchema } from '@erc725/erc725.js';
 import LSP3ProfileMetadataSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json';
 
 // constants
-import { LSP3ProfileMetadata, defaultLSP3ProfileMetadata } from '../../constants';
+import { LSP3ProfileMetadata, defaultLSP3ProfileMetadata } from '../../types';
 
 // IPFS Utils
 import { validateIpfsUrl } from '../../IPFS/validateIpfsUrl';

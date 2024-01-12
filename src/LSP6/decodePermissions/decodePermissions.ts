@@ -1,7 +1,7 @@
 // import { PERMISSIONS } from '@lukso/lsp-smart-contracts';
 import { BytesLike, ZeroHash, isHexString, stripZerosLeft, toBeHex } from 'ethers';
 import { PERMISSIONS } from '@lukso/lsp-smart-contracts';
-import { LSP6PermissionName } from '../../constants';
+import { LSP6PermissionName } from '../../types';
 
 /**
  * Decode a hex value, containing a `BitArray` of permissions. The `AddressPermissions:Permissions:<address>` can be decoded using this function.

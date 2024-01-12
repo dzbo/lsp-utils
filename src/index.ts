@@ -1,5 +1,38 @@
 // ------ Constants ------
-export * from './constants';
+export {
+    defaultLSP3ProfileMetadata,
+    defaultIpfsGateway,
+    LSP23LinkedContractsFactoryAddress,
+    upPostDeploymentModuleAddress,
+    UniversalProfileInitAddress,
+    LSP6KeyManagerInitAddress,
+    LSP7MintableInitAddress,
+    LSP8MintableInitAddress,
+    LSP1UniversalReceiverDelegateUPAddress,
+} from './constants';
+
+// ------ Types ------
+export {
+    InterfaceIdName,
+    InterfaceId,
+    LSP6PermissionName,
+    LSP6Permission,
+    Link,
+    Attribute,
+    HashBasedVerification,
+    ECDSABasedVerification,
+    Image,
+    Asset,
+    Avatar,
+    NFTBasedAsset,
+    NFTBasedImage,
+    NFTBasedAvatar,
+    LSP4AssetMetadata,
+    LSP3ProfileMetadata,
+    Issuer,
+    DigitalAsset,
+    LSP6Controller,
+} from './types';
 
 // ------ Helpers ------
 export { getErc725yContract, supportsLSPInterface } from './helpers';

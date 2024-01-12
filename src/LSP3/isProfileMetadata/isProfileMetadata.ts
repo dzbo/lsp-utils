@@ -1,4 +1,4 @@
-import { LSP3ProfileMetadata } from '../../constants';
+import { LSP3ProfileMetadata } from '../../types';
 
 /**
  * Returns `true` is the passed object is an LSP3 Profile Metadata, `false` otherwise.
@@ -19,9 +19,12 @@ export const isProfileMetadata = (
 ): object is LSP3ProfileMetadata => {
     return (
         'LSP3Profile' in object &&
+        'name' in object.LSP3Profile &&
         'description' in object.LSP3Profile &&
         'links' in object.LSP3Profile &&
-        'name' in object.LSP3Profile &&
-        'tags' in object.LSP3Profile
+        'tags' in object.LSP3Profile &&
+        'avatar' in object.LSP3Profile &&
+        'profileImage' in object.LSP3Profile &&
+        'backgroundImage' in object.LSP3Profile
     );
 };
