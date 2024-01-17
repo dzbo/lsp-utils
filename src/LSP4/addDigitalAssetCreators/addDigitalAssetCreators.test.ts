@@ -1,4 +1,4 @@
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { ERC725YDataKeys, INTERFACE_IDS, LSP4_TOKEN_TYPES } from '@lukso/lsp-smart-contracts';
 import { BytesLike, Signer, concat, toBeHex } from 'ethers';
 import ERC725 from '@erc725/erc725.js';
 import { ethers } from 'hardhat';
@@ -10,7 +10,7 @@ import {
     UniversalProfile,
     LSP7Mintable__factory,
     LSP7Mintable,
-} from '../../typechain';
+} from '../../typechain/lukso';
 
 // utils
 import {
@@ -39,6 +39,7 @@ describe('addDigitalAssetCreators', () => {
             'TestToken',
             'TTS',
             owner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
 
@@ -89,7 +90,7 @@ describe('addDigitalAssetCreators', () => {
             dataValues = [
                 toBeHex(context.creators.length, 16),
                 ...context.creators.flatMap((newCreator, index) => [
-                    newCreator.address,
+                    newCreator.address.toString(),
                     concat([newCreator.interfaceId, toBeHex(index, 16)]),
                 ]),
             ];

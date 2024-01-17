@@ -4,16 +4,17 @@
 
 ### addDigitalAssetCreators
 
-▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`): `Promise`\<`void`\>
+▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`, `signer?`): `Promise`\<`void`\>
 
 Add LSP4 Creators to the digital asset contract that supports ERC725Y.
 
 #### Parameters
 
-| Name           | Type       | Description                                                                          |
-| :------------- | :--------- | :----------------------------------------------------------------------------------- |
-| `digitalAsset` | `ERC725Y`  | -                                                                                    |
-| `newCreators`  | `Issuer`[] | An array of creators which specifies the address and interface id of each creatotor. |
+| Name           | Type                     | Description                                                                          |
+| :------------- | :----------------------- | :----------------------------------------------------------------------------------- |
+| `digitalAsset` | `BytesLike` \| `ERC725Y` | -                                                                                    |
+| `newCreators`  | `Issuer`[]               | An array of creators which specifies the address and interface id of each creatotor. |
+| `signer?`      | `Signer` \| `Wallet`     | The signer that will send the transaction.                                           |
 
 #### Returns
 
@@ -35,57 +36,111 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:36](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L36)
+[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:30](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L30)
 
-▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`, `signer`): `Promise`\<`void`\>
+---
 
-#### Parameters
+### authenticateDigitalAssetCreators
 
-| Name           | Type                 |
-| :------------- | :------------------- |
-| `digitalAsset` | `ERC725Y`            |
-| `newCreators`  | `Issuer`[]           |
-| `signer`       | `Signer` \| `Wallet` |
+▸ **authenticateDigitalAssetCreators**(`digitalAsset`, `provider?`): `Promise`\<`DigitalAssetsCreators`\>
 
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:40](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L40)
-
-▸ **addDigitalAssetCreators**(`digitalAsset`, `newCreators`, `signer`): `Promise`\<`void`\>
+Get the authenticated LSP4 Creators of the digital asset contract that supports ERC725Y.
 
 #### Parameters
 
-| Name           | Type                 |
-| :------------- | :------------------- |
-| `digitalAsset` | `BytesLike`          |
-| `newCreators`  | `Issuer`[]           |
-| `signer`       | `Signer` \| `Wallet` |
+| Name           | Type                     | Description         |
+| :------------- | :----------------------- | :------------------ |
+| `digitalAsset` | `BytesLike` \| `ERC725Y` | -                   |
+| `provider?`    | `Provider`               | An ethers provider. |
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<`DigitalAssetsCreators`\>
+
+An array of authenticated & unauthenticated Issuers.
+
+**`Since`**
+
+v0.0.2
+
+**`Throws`**
+
+When `digitalAssetAddress` is not a valid address.
+
+**`See`**
+
+https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md
 
 #### Defined in
 
-[LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts:45](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/addDigitalAssetCreators/addDigitalAssetCreators.ts#L45)
+[LSP4/authenticateDigitalAssetCreators/authenticateDigitalAssetCreators.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/authenticateDigitalAssetCreators/authenticateDigitalAssetCreators.ts#L27)
+
+---
+
+### getAssetMetadata
+
+▸ **getAssetMetadata**(`digitalAsset`, `provider?`): `Promise`\<`LSP4AssetMetadata`\>
+
+Returns a object of type LSP4AssetMetadata.
+
+#### Parameters
+
+| Name           | Type                     | Description                         |
+| :------------- | :----------------------- | :---------------------------------- |
+| `digitalAsset` | `BytesLike` \| `ERC725Y` | The instance of a ERC725Y contract. |
+| `provider?`    | `Provider`               | -                                   |
+
+#### Returns
+
+`Promise`\<`LSP4AssetMetadata`\>
+
+**`Since`**
+
+v0.0.2
+
+**`Throws`**
+
+-   When fails fetching the data from the stored url.
+-   When the fetched data is not `LSP4AssetMetadata`.
+
+**`See`**
+
+https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md
+
+**`Example`**
+
+```
+getAssetMetadata(ERC725Y) //=>
+// {
+//   LSP4Metadata: {
+//     name: "",
+//     description: "",
+//     links: [],
+//     icon: [],
+//     assets: [],
+//     images: []
+//   }
+// }
+```
+
+#### Defined in
+
+[LSP4/getAssetMetadata/getAssetMetadata.ts:44](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getAssetMetadata/getAssetMetadata.ts#L44)
 
 ---
 
 ### getDigitalAssetCreators
 
-▸ **getDigitalAssetCreators**(`digitalAsset`): `Promise`\<`Issuer`[]\>
+▸ **getDigitalAssetCreators**(`digitalAsset`, `provider?`): `Promise`\<`Issuer`[]\>
 
 Get the LSP4 Creators of a digital asset contract that supports ERC725Y.
 
 #### Parameters
 
-| Name           | Type      |
-| :------------- | :-------- |
-| `digitalAsset` | `ERC725Y` |
+| Name           | Type                     | Description         |
+| :------------- | :----------------------- | :------------------ |
+| `digitalAsset` | `BytesLike` \| `ERC725Y` | -                   |
+| `provider?`    | `Provider`               | An ethers provider. |
 
 #### Returns
 
@@ -100,7 +155,7 @@ v0.0.2
 **`Throws`**
 
 -   When `digitalAssetAddress` is not a valid address.
--   When the contract deployed at `digitalAssetAddress` address does not support the `ERC725Y` interface id.
+-   When the contract deployed at `digitalAssetAddress` does not support the `ERC725Y` interface id.
 -   When the length for `LSP4Creators[]` is not a valid LSP2 array length value.
 
 **`See`**
@@ -109,55 +164,22 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 #### Defined in
 
-[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L32)
-
-▸ **getDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`Issuer`[]\>
-
-#### Parameters
-
-| Name           | Type       |
-| :------------- | :--------- |
-| `digitalAsset` | `ERC725Y`  |
-| `provider`     | `Provider` |
-
-#### Returns
-
-`Promise`\<`Issuer`[]\>
-
-#### Defined in
-
 [LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:33](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L33)
-
-▸ **getDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`Issuer`[]\>
-
-#### Parameters
-
-| Name           | Type        |
-| :------------- | :---------- |
-| `digitalAsset` | `BytesLike` |
-| `provider`     | `Provider`  |
-
-#### Returns
-
-`Promise`\<`Issuer`[]\>
-
-#### Defined in
-
-[LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts:37](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/getDigitalAssetCreators/getDigitalAssetCreators.ts#L37)
 
 ---
 
 ### removeDigitalAssetCreators
 
-▸ **removeDigitalAssetCreators**(`digitalAsset`): `Promise`\<`void`\>
+▸ **removeDigitalAssetCreators**(`digitalAsset`, `signer?`): `Promise`\<`void`\>
 
 Remove the LSP4 Creators of a digital asset contract that supports ERC725Y.
 
 #### Parameters
 
-| Name           | Type      |
-| :------------- | :-------- |
-| `digitalAsset` | `ERC725Y` |
+| Name           | Type                     | Description                                |
+| :------------- | :----------------------- | :----------------------------------------- |
+| `digitalAsset` | `BytesLike` \| `ERC725Y` | -                                          |
+| `signer?`      | `Signer` \| `Wallet`     | The signer that will send the transaction. |
 
 #### Returns
 
@@ -182,36 +204,22 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata
 
 [LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L27)
 
-▸ **removeDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`void`\>
+## Other
+
+### isAssetMetadata
+
+▸ **isAssetMetadata**(`object`): object is LSP4AssetMetadata
 
 #### Parameters
 
-| Name           | Type                 |
-| :------------- | :------------------- |
-| `digitalAsset` | `ERC725Y`            |
-| `provider`     | `Signer` \| `Wallet` |
+| Name     | Type  |
+| :------- | :---- |
+| `object` | `any` |
 
 #### Returns
 
-`Promise`\<`void`\>
+object is LSP4AssetMetadata
 
 #### Defined in
 
-[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L28)
-
-▸ **removeDigitalAssetCreators**(`digitalAsset`, `provider`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name           | Type                 |
-| :------------- | :------------------- |
-| `digitalAsset` | `BytesLike`          |
-| `provider`     | `Signer` \| `Wallet` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/removeDigitalAssetCreators/removeDigitalAssetCreators.ts#L32)
+[LSP4/isAssetMetadata/isAssetMetadata.ts:3](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP4/isAssetMetadata/isAssetMetadata.ts#L3)

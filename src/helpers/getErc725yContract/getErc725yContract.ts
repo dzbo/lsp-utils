@@ -1,5 +1,5 @@
 import { BytesLike, Provider, Signer, Wallet, isAddress, isAddressable } from 'ethers';
-import { ERC725Y, ERC725Y__factory } from '../..';
+import { ERC725Y, ERC725Y__factory } from '../../typechain/erc725';
 import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
 
 /**

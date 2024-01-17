@@ -6,7 +6,8 @@
         "src/LSP4/index.ts",
         "src/LSP5/index.ts",
         "src/LSP6/index.ts",
-        "src/LSP12/index.ts"
+        "src/LSP12/index.ts",
+        "src/LSP23/index.ts",
     ],
     "out": "docs",
     "plugin": ["typedoc-plugin-markdown"],

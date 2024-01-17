@@ -1,6 +1,11 @@
 import { BytesLike, Provider, isAddress, isAddressable } from 'ethers';
-import { ERC165, ERC165__factory, InterfaceId, InterfaceIdName } from '../..';
 import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+
+// types
+import { InterfaceId, InterfaceIdName } from '../..';
+
+// typechain
+import { ERC165, ERC165__factory } from '../../typechain/openzeppelin';
 
 export async function supportsLSPInterface(
     interfaceId: InterfaceId | InterfaceIdName,

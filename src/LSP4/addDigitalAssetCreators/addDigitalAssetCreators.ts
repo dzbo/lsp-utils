@@ -3,7 +3,7 @@ import { BytesLike, Signer, Wallet, concat, toBeHex, toNumber } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // typescript
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // types
 import { Issuer } from '../../types';
@@ -27,10 +27,6 @@ import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthV
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md
  */
-export async function addDigitalAssetCreators(
-    digitalAsset: ERC725Y,
-    newCreators: Issuer[],
-): Promise<void>;
 export async function addDigitalAssetCreators(
     digitalAsset: ERC725Y | BytesLike,
     newCreators: Issuer[],

@@ -4,15 +4,16 @@
 
 ### getProfileMetadata
 
-▸ **getProfileMetadata**(`unviersalProfile`): `Promise`\<`LSP3ProfileMetadata`\>
+▸ **getProfileMetadata**(`contract`, `provider?`): `Promise`\<`LSP3ProfileMetadata`\>
 
 Returns a object of type LSP3ProfileMetadata.
 
 #### Parameters
 
-| Name               | Type               | Description                                   |
-| :----------------- | :----------------- | :-------------------------------------------- |
-| `unviersalProfile` | `UniversalProfile` | The instance of a Unviersal Profile contract. |
+| Name        | Type                     |
+| :---------- | :----------------------- |
+| `contract`  | `BytesLike` \| `ERC725Y` |
+| `provider?` | `Provider`               |
 
 #### Returns
 
@@ -24,7 +25,8 @@ v0.0.1
 
 **`Throws`**
 
-When the fetched data is not `LSP3ProfileMetadata`.
+-   When fails fetching the data from the stored url.
+-   When the fetched data is not `LSP3ProfileMetadata`.
 
 **`See`**
 
@@ -33,7 +35,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-3-Profile-Metadata.md
 **`Example`**
 
 ```
-getMetadata(UniversalProfile) //=>
+getProfileMetadata(ERC725Y) //=>
 // {
 //   LSP3Profile: {
 //     description: "",
@@ -46,24 +48,7 @@ getMetadata(UniversalProfile) //=>
 
 #### Defined in
 
-[LSP3/getProfileMetadata/getProfileMetadata.ts:44](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L44)
-
-▸ **getProfileMetadata**(`unviersalProfile`, `provider`): `Promise`\<`LSP3ProfileMetadata`\>
-
-#### Parameters
-
-| Name               | Type        |
-| :----------------- | :---------- |
-| `unviersalProfile` | `BytesLike` |
-| `provider`         | `Provider`  |
-
-#### Returns
-
-`Promise`\<`LSP3ProfileMetadata`\>
-
-#### Defined in
-
-[LSP3/getProfileMetadata/getProfileMetadata.ts:47](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L47)
+[LSP3/getProfileMetadata/getProfileMetadata.ts:53](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP3/getProfileMetadata/getProfileMetadata.ts#L53)
 
 ---
 

@@ -12,35 +12,15 @@ export {
 } from './constants';
 
 // ------ Types ------
-export {
-    InterfaceIdName,
-    InterfaceId,
-    LSP6PermissionName,
-    LSP6Permission,
-    Link,
-    Attribute,
-    HashBasedVerification,
-    ECDSABasedVerification,
-    Image,
-    Asset,
-    Avatar,
-    NFTBasedAsset,
-    NFTBasedImage,
-    NFTBasedAvatar,
-    LSP4AssetMetadata,
-    LSP3ProfileMetadata,
-    Issuer,
-    DigitalAsset,
-    IssuerAssets,
-    DigitalAssetsCreators,
-    LSP6Controller,
-} from './types';
+export * from './types';
 
 // ------ Helpers ------
 export { getErc725yContract, supportsLSPInterface } from './helpers';
 
 // ------ TypeChain ------
-export * from './typechain';
+export * as erc725Typechain from './typechain/erc725';
+export * as luksoTypechain from './typechain/lukso';
+export * as openzeppelinTypechain from './typechain/openzeppelin';
 
 // ------ IPFS ------
 export { validateIpfsUrl } from './IPFS';

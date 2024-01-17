@@ -1,9 +1,9 @@
 import ERC725 from '@erc725/erc725.js';
 import { BytesLike, Signer, Wallet, concat, toBeHex, toNumber } from 'ethers';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // utils
 import {
@@ -29,10 +29,6 @@ import {
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
  */
-export async function addIssuedAssets(
-    issuer: ERC725Y,
-    newIssuedAssets: DigitalAsset[],
-): Promise<void>;
 export async function addIssuedAssets(
     issuer: ERC725Y | BytesLike,
     newIssuedAssets: DigitalAsset[],
@@ -76,7 +72,7 @@ export async function addIssuedAssets(
     const dataValues = [
         toBeHex(issuedAssetsLength + newIssuedAssets.length, 16),
         ...newIssuedAssets.flatMap((newIssuedAsset, index) => [
-            newIssuedAsset.address,
+            newIssuedAsset.address.toString(),
             concat([newIssuedAsset.interfaceId, toBeHex(index, 16)]),
         ]),
     ];

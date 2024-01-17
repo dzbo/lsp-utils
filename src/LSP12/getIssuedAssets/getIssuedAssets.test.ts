@@ -1,5 +1,5 @@
 // import { expect } from 'chai';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { ERC725YDataKeys, INTERFACE_IDS, LSP4_TOKEN_TYPES } from '@lukso/lsp-smart-contracts';
 import { Signer, concat, toBeHex } from 'ethers';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -10,7 +10,7 @@ import {
     UniversalProfile,
     LSP7Mintable__factory,
     LSP7Mintable,
-} from '../../typechain';
+} from '../../typechain/lukso';
 
 // util
 import {
@@ -43,12 +43,14 @@ describe('getIssuedAssets', () => {
             'FirstTestToken',
             'FTT',
             owner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
         const secondIssuedAsset = await new LSP7Mintable__factory(owner).deploy(
             'SecondTestToken',
             'STT',
             owner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
 
@@ -137,17 +139,17 @@ describe('getIssuedAssets', () => {
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP12.LSP12IssuedAssetsMap,
-                            context.issuedAssets[0].address,
+                            context.issuedAssets[0].address.toString(),
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP12.LSP12IssuedAssetsMap,
-                            context.issuedAssets[1].address,
+                            context.issuedAssets[1].address.toString(),
                         ),
                     ],
                     [
                         toBeHex(2, 16),
                         '0x',
-                        context.issuedAssets[1].address,
+                        context.issuedAssets[1].address.toString(),
                         concat([context.issuedAssets[0].interfaceId, toBeHex(0, 16)]),
                         concat([context.issuedAssets[1].interfaceId, toBeHex(1, 16)]),
                     ],
@@ -208,17 +210,17 @@ describe('getIssuedAssets', () => {
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP12.LSP12IssuedAssetsMap,
-                            context.issuedAssets[0].address,
+                            context.issuedAssets[0].address.toString(),
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP12.LSP12IssuedAssetsMap,
-                            context.issuedAssets[1].address,
+                            context.issuedAssets[1].address.toString(),
                         ),
                     ],
                     [
                         toBeHex(2, 16),
-                        context.issuedAssets[0].address,
-                        context.issuedAssets[1].address,
+                        context.issuedAssets[0].address.toString(),
+                        context.issuedAssets[1].address.toString(),
                         '0x',
                         concat([context.issuedAssets[1].interfaceId, toBeHex(1, 16)]),
                     ],

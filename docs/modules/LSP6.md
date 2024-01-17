@@ -160,19 +160,20 @@ decodeAllowedERC725YDataKeys("0x0002cafe000abeefdeadbeef0000cafe") //=>
 
 ### decodePermissions
 
-▸ **decodePermissions**(`permissions`): `Set`\<`LSP6PermissionName`\>
+▸ **decodePermissions**(`permissions`, `decodedPermissionsType?`): `Set`\<`BytesLike` \| `bigint` \| `LSP6PermissionName`\> \| `boolean`[]
 
 Decode a hex value, containing a `BitArray` of permissions. The `AddressPermissions:Permissions:<address>` can be decoded using this function.
 
 #### Parameters
 
-| Name          | Type        | Description                                        |
-| :------------ | :---------- | :------------------------------------------------- |
-| `permissions` | `BytesLike` | A hex value, containing a BitArray of permissions. |
+| Name                      | Type                                                                 | Description                                                                                                                                                                 |
+| :------------------------ | :------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `permissions`             | `BytesLike`                                                          | A hex value, containing a BitArray of permissions.                                                                                                                          |
+| `decodedPermissionsType?` | `"bigint"` \| `"boolean"` \| `"BytesLike"` \| `"LSP6PermissionName"` | Optional param, defaults to `LSP6PermissionName`. Can be used to specfiy the type of the return array. Options: - `BytesLike` - `bigint` - `boolean` - `LSP6PermissionName` |
 
 #### Returns
 
-`Set`\<`LSP6PermissionName`\>
+`Set`\<`BytesLike` \| `bigint` \| `LSP6PermissionName`\> \| `boolean`[]
 
 An array of decoded permissions.
 
@@ -219,74 +220,6 @@ decodePermissions([
 #### Defined in
 
 [LSP6/decodePermissions/decodePermissions.ts:53](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L53)
-
-▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`BytesLike`\>
-
-#### Parameters
-
-| Name                     | Type          |
-| :----------------------- | :------------ |
-| `permissions`            | `BytesLike`   |
-| `decodedPermissionsType` | `"BytesLike"` |
-
-#### Returns
-
-`Set`\<`BytesLike`\>
-
-#### Defined in
-
-[LSP6/decodePermissions/decodePermissions.ts:54](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L54)
-
-▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`bigint`\>
-
-#### Parameters
-
-| Name                     | Type        |
-| :----------------------- | :---------- |
-| `permissions`            | `BytesLike` |
-| `decodedPermissionsType` | `"bigint"`  |
-
-#### Returns
-
-`Set`\<`bigint`\>
-
-#### Defined in
-
-[LSP6/decodePermissions/decodePermissions.ts:58](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L58)
-
-▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `boolean`[]
-
-#### Parameters
-
-| Name                     | Type        |
-| :----------------------- | :---------- |
-| `permissions`            | `BytesLike` |
-| `decodedPermissionsType` | `"boolean"` |
-
-#### Returns
-
-`boolean`[]
-
-#### Defined in
-
-[LSP6/decodePermissions/decodePermissions.ts:62](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L62)
-
-▸ **decodePermissions**(`permissions`, `decodedPermissionsType`): `Set`\<`LSP6PermissionName`\>
-
-#### Parameters
-
-| Name                     | Type                   |
-| :----------------------- | :--------------------- |
-| `permissions`            | `BytesLike`            |
-| `decodedPermissionsType` | `"LSP6PermissionName"` |
-
-#### Returns
-
-`Set`\<`LSP6PermissionName`\>
-
-#### Defined in
-
-[LSP6/decodePermissions/decodePermissions.ts:66](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP6/decodePermissions/decodePermissions.ts#L66)
 
 ---
 

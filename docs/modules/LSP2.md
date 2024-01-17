@@ -604,7 +604,7 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-2-ERC725YJSONSchema.md
 
 #### Defined in
 
-[LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts#L28)
+[LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts:30](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP2/removeElementFromArrayAndMap/removeElementFromArrayAndMap.ts#L30)
 
 ---
 

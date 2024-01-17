@@ -2,8 +2,8 @@ import ERC725 from '@erc725/erc725.js';
 import { BytesLike, Signer, Wallet, isAddress, toBeHex, toNumber } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
-// types
-import { ERC725Y } from '../../typechain';
+// typechain
+import { ERC725Y } from '../../typechain/erc725';
 
 // utils
 import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthValue } from '../..';

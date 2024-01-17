@@ -1,12 +1,13 @@
 import { expect } from 'chai';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // utils
 import { getProfileMetadata } from '../..';
 
-describe('getProfileMetadata', () => {
+// TODO Find a way to test without fetching data from ipfs
+describe.skip('getProfileMetadata', () => {
     const mockErc725yContract = {
         async supportsInterface(interfaceId: string) {
             interfaceId;

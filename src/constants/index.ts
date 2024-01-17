@@ -24,7 +24,7 @@ export const defaultLSP4AssetMetadata: LSP4AssetMetadata = {
     },
 };
 
-export const defaultIpfsGateway = 'https://ipfs.io/ipfs/';
+export const defaultIpfsGateway = 'https://api.universalprofile.cloud/ipfs/';
 
 export const LSP23LinkedContractsFactoryAddress = '0x2300000A84D25dF63081feAa37ba6b62C4c89a30';
 export const upPostDeploymentModuleAddress = '0x000000000066093407b6704B89793beFfD0D8F00';

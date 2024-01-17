@@ -10,7 +10,7 @@ import {
 import { expect } from 'chai';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // utils
 import { getErc725yContract } from '../..';
