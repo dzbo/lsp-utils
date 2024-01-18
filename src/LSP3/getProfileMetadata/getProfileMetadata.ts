@@ -1,10 +1,16 @@
 import fetch from 'isomorphic-fetch';
+import { BytesLike, Provider } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
+
+// erc725.js
 import ERC725, { ERC725JSONSchema } from '@erc725/erc725.js';
 import LSP3ProfileMetadataSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json';
 
 // constants
-import { LSP3ProfileMetadata, defaultLSP3ProfileMetadata } from '../../types';
+import { defaultLSP3ProfileMetadata } from '../../constants';
+
+// types
+import { LSP3ProfileMetadata } from '../../types';
 
 // IPFS Utils
 import { validateIpfsUrl } from '../../IPFS/validateIpfsUrl';
@@ -12,10 +18,11 @@ import { validateIpfsUrl } from '../../IPFS/validateIpfsUrl';
 // LSP3 Utils
 import { isProfileMetadata } from '../isProfileMetadata';
 
-// types
+// helpers
+import { getErc725yContract } from '../../helpers';
+
+// typechain
 import { ERC725Y } from '../../typechain';
-import { BytesLike, Provider } from 'ethers';
-import { getErc725yContract } from '../..';
 
 /**
  * Returns a object of type LSP3ProfileMetadata.
@@ -43,7 +50,6 @@ import { getErc725yContract } from '../..';
  * // }
  * ```
  */
-export async function getProfileMetadata(contract: ERC725Y): Promise<LSP3ProfileMetadata>;
 export async function getProfileMetadata(
     contract: BytesLike | ERC725Y,
     provider?: Provider,

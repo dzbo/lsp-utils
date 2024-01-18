@@ -79,6 +79,16 @@ export type Issuer = { address: AddressLike; interfaceId: BytesLike };
 
 export type DigitalAsset = { address: AddressLike; interfaceId: BytesLike };
 
+export type IssuerAssets = {
+    unauthenticatedAssets: DigitalAsset[];
+    authenticatedAssets: DigitalAsset[];
+};
+
+export type DigitalAssetsCreators = {
+    unauthenticatedCreators: Issuer[];
+    authenticatedCreators: Issuer[];
+};
+
 export type LSP6Controller = {
     address: AddressLike;
     permissions: BytesLike;

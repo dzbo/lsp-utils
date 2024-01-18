@@ -1,0 +1,1 @@
+export { authenticateDigitalAssetCreators } from './authenticateDigitalAssetCreators';

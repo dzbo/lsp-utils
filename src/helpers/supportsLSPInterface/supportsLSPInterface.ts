@@ -4,10 +4,6 @@ import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
 
 export async function supportsLSPInterface(
     interfaceId: InterfaceId | InterfaceIdName,
-    contract: ERC165,
-): Promise<boolean>;
-export async function supportsLSPInterface(
-    interfaceId: InterfaceId | InterfaceIdName,
     contract: ERC165 | BytesLike,
     provider?: Provider,
 ): Promise<boolean> {

@@ -39,6 +39,7 @@ describe('removeDigitalAssetCreators', () => {
             'TestToken',
             'TTS',
             owner.address,
+            0,
             true,
         );
 

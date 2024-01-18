@@ -14,7 +14,7 @@ import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthV
  * @since v0.0.2
  * @category LSP4
  * @param signer The signer that will send the transaction.
- * @param digitalAssetAddress The adderss of the digital asset contract that supports ERC725Y.
+ * @param digitalAssetAddress The address of the digital asset contract that supports ERC725Y.
  *
  * @throws
  * - When `digitalAssetAddress` is not a valid address.
@@ -24,7 +24,6 @@ import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthV
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md
  */
-export async function removeDigitalAssetCreators(digitalAsset: ERC725Y): Promise<void>;
 export async function removeDigitalAssetCreators(
     digitalAsset: ERC725Y | BytesLike,
     signer?: Signer | Wallet,

@@ -14,7 +14,7 @@ import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthV
  * @since v0.0.2
  * @category LSP12
  * @param signer The signer that will send the transaction.
- * @param issuerAddress The adderss of the issuer contract that supports ERC725Y.
+ * @param issuerAddress The address of the issuer contract that supports ERC725Y.
  *
  * @throws
  * - When `issuerAddress` is not a valid address.

@@ -5,7 +5,10 @@ import ERC725, { ERC725JSONSchema } from '@erc725/erc725.js';
 import LSP4DigitalAssetSchema from '@erc725/erc725.js/schemas/LSP4DigitalAsset.json';
 
 // utils
-import { LSP4AssetMetadata, getErc725yContract, isAssetMetadata, validateIpfsUrl } from '../..';
+import { getErc725yContract, isAssetMetadata, validateIpfsUrl } from '../..';
+
+// typechain
+import { LSP4AssetMetadata } from '../../types';
 
 // types
 import { ERC725Y } from '../../typechain';

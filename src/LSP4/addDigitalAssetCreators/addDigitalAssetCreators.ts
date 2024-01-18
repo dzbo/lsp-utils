@@ -2,16 +2,14 @@ import ERC725 from '@erc725/erc725.js';
 import { BytesLike, Signer, Wallet, concat, toBeHex, toNumber } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
-// types
+// typescript
 import { ERC725Y } from '../../typechain';
 
+// types
+import { Issuer } from '../../types';
+
 // utils
-import {
-    Issuer,
-    generateArrayElementKeyAtIndex,
-    getErc725yContract,
-    isValidArrayLengthValue,
-} from '../..';
+import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthValue } from '../..';
 
 /**
  * Add LSP4 Creators to the digital asset contract that supports ERC725Y.
@@ -19,7 +17,7 @@ import {
  * @since v0.0.2
  * @category LSP4
  * @param signer The signer that will send the transaction.
- * @param digitalAssetAddress The adderss of the digital asset contract that supports ERC725Y.
+ * @param digitalAssetAddress The address of the digital asset contract that supports ERC725Y.
  * @param newCreators An array of creators which specifies the address and interface id of each creatotor.
  *
  * @throws
@@ -74,7 +72,7 @@ export async function addDigitalAssetCreators(
     const dataValues = [
         toBeHex(creatorsLength + newCreators.length, 16),
         ...newCreators.flatMap((newCreator, index) => [
-            newCreator.address,
+            newCreator.address.toString(),
             concat([newCreator.interfaceId, toBeHex(index, 16)]),
         ]),
     ];
