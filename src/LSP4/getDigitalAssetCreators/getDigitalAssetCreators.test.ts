@@ -1,5 +1,5 @@
 // import { expect } from 'chai';
-import { ERC725YDataKeys, INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { ERC725YDataKeys, INTERFACE_IDS, LSP4_TOKEN_TYPES } from '@lukso/lsp-smart-contracts';
 import { Signer, concat, toBeHex } from 'ethers';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -10,7 +10,7 @@ import {
     UniversalProfile,
     LSP7Mintable__factory,
     LSP7Mintable,
-} from '../../typechain';
+} from '../../typechain/lukso';
 
 // util
 import {
@@ -41,6 +41,7 @@ describe('getDigitalAssetCreators', () => {
             'TestToken',
             'TTS',
             owner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
 
@@ -127,17 +128,17 @@ describe('getDigitalAssetCreators', () => {
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP4.LSP4CreatorsMap,
-                            context.creators[0].address,
+                            context.creators[0].address.toString(),
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP4.LSP4CreatorsMap,
-                            context.creators[1].address,
+                            context.creators[1].address.toString(),
                         ),
                     ],
                     [
                         toBeHex(2, 16),
                         '0x',
-                        context.creators[1].address,
+                        context.creators[1].address.toString(),
                         concat([context.creators[0].interfaceId, toBeHex(0, 16)]),
                         concat([context.creators[1].interfaceId, toBeHex(1, 16)]),
                     ],
@@ -198,17 +199,17 @@ describe('getDigitalAssetCreators', () => {
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP4.LSP4CreatorsMap,
-                            context.creators[0].address,
+                            context.creators[0].address.toString(),
                         ),
                         generateMappingKey(
                             ERC725YDataKeys.LSP4.LSP4CreatorsMap,
-                            context.creators[1].address,
+                            context.creators[1].address.toString(),
                         ),
                     ],
                     [
                         toBeHex(2, 16),
-                        context.creators[0].address,
-                        context.creators[1].address,
+                        context.creators[0].address.toString(),
+                        context.creators[1].address.toString(),
                         '0x',
                         concat([context.creators[1].interfaceId, toBeHex(1, 16)]),
                     ],

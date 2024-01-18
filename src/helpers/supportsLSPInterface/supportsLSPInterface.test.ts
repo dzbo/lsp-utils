@@ -2,7 +2,7 @@ import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
 import { expect } from 'chai';
 
 // types
-import { ERC165 } from '../../typechain';
+import { ERC165 } from '../../typechain/openzeppelin';
 
 // utils
 import { supportsLSPInterface } from '../..';

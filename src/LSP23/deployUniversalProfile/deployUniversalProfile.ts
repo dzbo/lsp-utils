@@ -10,10 +10,12 @@ import {
     LSP6Controller,
 } from '../..';
 
-// types
-// import needs to be one liner in order for `scripts/generateSpecificTypechain.bash` to work
-// prettier-ignore
-import { LSP23LinkedContractsFactory__factory, LSP6KeyManagerInit__factory, UniversalProfileInit__factory } from '../../typechain';
+// typechain
+import {
+    LSP23LinkedContractsFactory__factory,
+    LSP6KeyManagerInit__factory,
+    UniversalProfileInit__factory,
+} from '../../typechain/lukso';
 
 /**
  * Deploy Universal Profile with Key Manager using LSP23 Linked Contracts Factory.

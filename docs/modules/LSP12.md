@@ -4,16 +4,17 @@
 
 ### addIssuedAssets
 
-▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`): `Promise`\<`void`\>
+▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`, `signer?`): `Promise`\<`void`\>
 
 Add LSP12 Issued Assets to a issuer contract that supports ERC725Y.
 
 #### Parameters
 
-| Name              | Type             | Description                                                                                  |
-| :---------------- | :--------------- | :------------------------------------------------------------------------------------------- |
-| `issuer`          | `ERC725Y`        | -                                                                                            |
-| `newIssuedAssets` | `DigitalAsset`[] | An array of issued assets which specifies the address and interface id of each issued asset. |
+| Name              | Type                     | Description                                                                                  |
+| :---------------- | :----------------------- | :------------------------------------------------------------------------------------------- |
+| `issuer`          | `BytesLike` \| `ERC725Y` | -                                                                                            |
+| `newIssuedAssets` | `DigitalAsset`[]         | An array of issued assets which specifies the address and interface id of each issued asset. |
+| `signer?`         | `Signer` \| `Wallet`     | The signer that will send the transaction.                                                   |
 
 #### Returns
 
@@ -35,57 +36,59 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/addIssuedAssets/addIssuedAssets.ts:36](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L36)
+[LSP12/addIssuedAssets/addIssuedAssets.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L32)
 
-▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`, `signer`): `Promise`\<`void`\>
+---
 
-#### Parameters
+### authenticateIssuedAssets
 
-| Name              | Type                 |
-| :---------------- | :------------------- |
-| `issuer`          | `ERC725Y`            |
-| `newIssuedAssets` | `DigitalAsset`[]     |
-| `signer`          | `Signer` \| `Wallet` |
+▸ **authenticateIssuedAssets**(`issuer`, `provider?`): `Promise`\<`IssuerAssets`\>
 
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[LSP12/addIssuedAssets/addIssuedAssets.ts:40](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L40)
-
-▸ **addIssuedAssets**(`issuer`, `newIssuedAssets`, `signer`): `Promise`\<`void`\>
+Get the authenticated LSP12 Issued Assets of a issuer contract that supports ERC725Y.
 
 #### Parameters
 
-| Name              | Type                 |
-| :---------------- | :------------------- |
-| `issuer`          | `BytesLike`          |
-| `newIssuedAssets` | `DigitalAsset`[]     |
-| `signer`          | `Signer` \| `Wallet` |
+| Name        | Type                     | Description         |
+| :---------- | :----------------------- | :------------------ |
+| `issuer`    | `BytesLike` \| `ERC725Y` | -                   |
+| `provider?` | `Provider`               | An ethers provider. |
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<`IssuerAssets`\>
+
+An array of authenticated & unauthenticated Digital Assets.
+
+**`Since`**
+
+v0.0.2
+
+**`Throws`**
+
+When `issuerAddress` is not a valid address.
+
+**`See`**
+
+https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/addIssuedAssets/addIssuedAssets.ts:45](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/addIssuedAssets/addIssuedAssets.ts#L45)
+[LSP12/authenticateIssuedAssets/authenticateIssuedAssets.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/authenticateIssuedAssets/authenticateIssuedAssets.ts#L27)
 
 ---
 
 ### getIssuedAssets
 
-▸ **getIssuedAssets**(`issuer`): `Promise`\<`DigitalAsset`[]\>
+▸ **getIssuedAssets**(`issuer`, `provider?`): `Promise`\<`DigitalAsset`[]\>
 
 Get the LSP12 Issued Assets of a issuer contract that supports ERC725Y.
 
 #### Parameters
 
-| Name     | Type      |
-| :------- | :-------- |
-| `issuer` | `ERC725Y` |
+| Name        | Type                     | Description         |
+| :---------- | :----------------------- | :------------------ |
+| `issuer`    | `BytesLike` \| `ERC725Y` | -                   |
+| `provider?` | `Provider`               | An ethers provider. |
 
 #### Returns
 
@@ -100,7 +103,7 @@ v0.0.2
 **`Throws`**
 
 -   When `issuerAddress` is not a valid address.
--   When the contract deployed at `issuerAddress` address does not support the `ERC725Y` interface id.
+-   When the contract deployed at `issuerAddress` does not support the `ERC725Y` interface id.
 -   When the length for `LSP12IssuedAssets[]` is not a valid LSP2 array length value.
 
 **`See`**
@@ -109,55 +112,22 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 
 #### Defined in
 
-[LSP12/getIssuedAssets/getIssuedAssets.ts:32](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L32)
-
-▸ **getIssuedAssets**(`issuer`, `provider`): `Promise`\<`DigitalAsset`[]\>
-
-#### Parameters
-
-| Name       | Type       |
-| :--------- | :--------- |
-| `issuer`   | `ERC725Y`  |
-| `provider` | `Provider` |
-
-#### Returns
-
-`Promise`\<`DigitalAsset`[]\>
-
-#### Defined in
-
 [LSP12/getIssuedAssets/getIssuedAssets.ts:33](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L33)
-
-▸ **getIssuedAssets**(`issuer`, `provider`): `Promise`\<`DigitalAsset`[]\>
-
-#### Parameters
-
-| Name       | Type        |
-| :--------- | :---------- |
-| `issuer`   | `BytesLike` |
-| `provider` | `Provider`  |
-
-#### Returns
-
-`Promise`\<`DigitalAsset`[]\>
-
-#### Defined in
-
-[LSP12/getIssuedAssets/getIssuedAssets.ts:34](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/getIssuedAssets/getIssuedAssets.ts#L34)
 
 ---
 
 ### removeIssuedAssets
 
-▸ **removeIssuedAssets**(`issuer`): `Promise`\<`void`\>
+▸ **removeIssuedAssets**(`issuer`, `signer?`): `Promise`\<`void`\>
 
 Remove the LSP12 Issued Assets of a issuer contract that supports ERC725Y.
 
 #### Parameters
 
-| Name     | Type      |
-| :------- | :-------- |
-| `issuer` | `ERC725Y` |
+| Name      | Type                     | Description                                |
+| :-------- | :----------------------- | :----------------------------------------- |
+| `issuer`  | `BytesLike` \| `ERC725Y` | -                                          |
+| `signer?` | `Signer` \| `Wallet`     | The signer that will send the transaction. |
 
 #### Returns
 
@@ -181,37 +151,3 @@ https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
 #### Defined in
 
 [LSP12/removeIssuedAssets/removeIssuedAssets.ts:27](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L27)
-
-▸ **removeIssuedAssets**(`issuer`, `signer`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name     | Type                 |
-| :------- | :------------------- |
-| `issuer` | `ERC725Y`            |
-| `signer` | `Signer` \| `Wallet` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[LSP12/removeIssuedAssets/removeIssuedAssets.ts:28](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L28)
-
-▸ **removeIssuedAssets**(`issuer`, `signer`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name     | Type                 |
-| :------- | :------------------- |
-| `issuer` | `BytesLike`          |
-| `signer` | `Signer` \| `Wallet` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[LSP12/removeIssuedAssets/removeIssuedAssets.ts:29](https://github.com/lukso-network/lsp-utils/blob/main/src/LSP12/removeIssuedAssets/removeIssuedAssets.ts#L29)

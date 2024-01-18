@@ -22,7 +22,7 @@ import { isProfileMetadata } from '../isProfileMetadata';
 import { getErc725yContract } from '../../helpers';
 
 // typechain
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 /**
  * Returns a object of type LSP3ProfileMetadata.

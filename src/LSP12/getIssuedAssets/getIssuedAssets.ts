@@ -2,7 +2,7 @@ import { BytesLike, Provider, isAddress, isHexString, toNumber } from 'ethers';
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // constants
 import {
@@ -25,7 +25,7 @@ import {
  *
  * @throws
  * - When `issuerAddress` is not a valid address.
- * - When the contract deployed at `issuerAddress` address does not support the `ERC725Y` interface id.
+ * - When the contract deployed at `issuerAddress` does not support the `ERC725Y` interface id.
  * - When the length for `LSP12IssuedAssets[]` is not a valid LSP2 array length value.
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md

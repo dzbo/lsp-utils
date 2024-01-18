@@ -10,8 +10,8 @@ import { getErc725yContract, isAssetMetadata, validateIpfsUrl } from '../..';
 // typechain
 import { LSP4AssetMetadata } from '../../types';
 
-// types
-import { ERC725Y } from '../../typechain';
+// typechain
+import { ERC725Y } from '../../typechain/erc725';
 
 /**
  * Returns a object of type LSP4AssetMetadata.
@@ -41,7 +41,6 @@ import { ERC725Y } from '../../typechain';
  * // }
  * ```
  */
-export async function getAssetMetadata(digitalAsset: ERC725Y): Promise<LSP4AssetMetadata>;
 export async function getAssetMetadata(
     digitalAsset: ERC725Y | BytesLike,
     provider?: Provider,

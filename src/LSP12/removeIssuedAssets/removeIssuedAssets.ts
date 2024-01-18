@@ -3,7 +3,7 @@ import { BytesLike, Signer, Wallet, isAddress, toBeHex, toNumber } from 'ethers'
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 // utils
 import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthValue } from '../..';
@@ -24,7 +24,6 @@ import { generateArrayElementKeyAtIndex, getErc725yContract, isValidArrayLengthV
  *
  * @see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-12-IssuedAssets.md
  */
-export async function removeIssuedAssets(issuer: ERC725Y): Promise<void>;
 export async function removeIssuedAssets(
     issuer: ERC725Y | BytesLike,
     signer?: Signer | Wallet,

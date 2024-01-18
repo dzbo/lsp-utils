@@ -8,7 +8,7 @@ import { getDigitalAssetCreators } from '../getDigitalAssetCreators';
 import { getIssuedAssets } from '../../LSP12/getIssuedAssets';
 
 // types
-import { ERC725Y } from '../../typechain';
+import { ERC725Y } from '../../typechain/erc725';
 
 /**
  * Get the authenticated LSP4 Creators of the digital asset contract that supports ERC725Y.

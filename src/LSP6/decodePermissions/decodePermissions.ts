@@ -50,23 +50,6 @@ import { LSP6PermissionName } from '../../types';
  * ]) //=> [ true, true, false, false, false, false, false, false ]
  * ```
  */
-export function decodePermissions(permissions: string | BytesLike): Set<LSP6PermissionName>;
-export function decodePermissions(
-    permissions: string | BytesLike,
-    decodedPermissionsType: 'BytesLike',
-): Set<BytesLike>;
-export function decodePermissions(
-    permissions: string | BytesLike,
-    decodedPermissionsType: 'bigint',
-): Set<bigint>;
-export function decodePermissions(
-    permissions: string | BytesLike,
-    decodedPermissionsType: 'boolean',
-): boolean[];
-export function decodePermissions(
-    permissions: string | BytesLike,
-    decodedPermissionsType: 'LSP6PermissionName',
-): Set<LSP6PermissionName>;
 export function decodePermissions(
     permissions: string | BytesLike,
     decodedPermissionsType?: 'BytesLike' | 'bigint' | 'boolean' | 'LSP6PermissionName',

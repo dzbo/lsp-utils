@@ -8,8 +8,8 @@ import { isValidArrayLengthValue } from '../../LSP2/isValidArrayLengthValue';
 import { generateMappingKey } from '../../LSP2/generateMappingKey';
 import { generateArrayElementKeyAtIndex } from '../../LSP2/generateArrayElementKeyAtIndex';
 
-// types
-import { UniversalProfile } from '../../typechain';
+// typechain
+import { UniversalProfile } from '../../typechain/lukso';
 
 /**
  * Generate an array of Data Key/Value pairs to be set on the receiver address after receiving assets.

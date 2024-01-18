@@ -6,7 +6,9 @@ import { DigitalAsset, Issuer, IssuerAssets } from '../..';
 // utils
 import { getIssuedAssets } from '../getIssuedAssets';
 import { getDigitalAssetCreators } from '../../LSP4/getDigitalAssetCreators';
-import { ERC725Y } from '../../typechain';
+
+// typechain
+import { ERC725Y } from '../../typechain/erc725';
 
 /**
  * Get the authenticated LSP12 Issued Assets of a issuer contract that supports ERC725Y.
@@ -59,11 +61,17 @@ export async function authenticateIssuedAssets(
 
         let fetchedCreators: Issuer[];
         if (isAddress(issuer)) {
-            fetchedCreators = await getDigitalAssetCreators(issuedAsset.address, provider);
+            fetchedCreators = await getDigitalAssetCreators(
+                issuedAsset.address.toString(),
+                provider,
+            );
         } else if (isAddressable(issuer)) {
             fetchedCreators = provider
-                ? await getDigitalAssetCreators(issuedAsset.address, provider)
-                : await getDigitalAssetCreators(issuedAsset.address, issuer.runner as Provider);
+                ? await getDigitalAssetCreators(issuedAsset.address.toString(), provider)
+                : await getDigitalAssetCreators(
+                      issuedAsset.address.toString(),
+                      issuer.runner as Provider,
+                  );
         }
 
         const filteredCreators = fetchedCreators.filter(

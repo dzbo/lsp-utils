@@ -1,10 +1,12 @@
 // ethers
 import { BytesLike, concat, isHexString, toBeHex } from 'ethers';
 
-// types
-import { UniversalProfile } from '../../typechain';
+// utils
 import { generateArrayElementKeyAtIndex } from '../generateArrayElementKeyAtIndex';
 import { generateMappingKey } from '../generateMappingKey';
+
+// typechain
+import { UniversalProfile } from '../../typechain/lukso';
 
 /**
  * Generates Data Key/Value pairs for removing an element from an LSP2 Array and a mapping Data Key.

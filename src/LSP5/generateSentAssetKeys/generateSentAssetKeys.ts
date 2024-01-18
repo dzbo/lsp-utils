@@ -11,8 +11,8 @@ import { generateArrayElementKeyAtIndex } from '../../LSP2/generateArrayElementK
 import { removeLastElementFromArrayAndMap } from '../../LSP2/removeLastElementFromArrayAndMap';
 import { removeElementFromArrayAndMap } from '../../LSP2/removeElementFromArrayAndMap';
 
-// types
-import { UniversalProfile } from '../../typechain';
+// typechain
+import { UniversalProfile } from '../../typechain/lukso';
 
 /**
  * Generate an array of Data Key/Value pairs to be set on the sender address after sending assets.

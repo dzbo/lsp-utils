@@ -1,4 +1,4 @@
-import { INTERFACE_IDS } from '@lukso/lsp-smart-contracts';
+import { INTERFACE_IDS, LSP4_TOKEN_TYPES } from '@lukso/lsp-smart-contracts';
 import { Signer, keccak256, toUtf8Bytes } from 'ethers';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -19,7 +19,7 @@ import {
     LSP7Mintable,
     UniversalProfile__factory,
     UniversalProfile,
-} from '../../typechain';
+} from '../../typechain/lukso';
 
 describe('authenticateDigitalAssetCreators', () => {
     let context: {
@@ -50,12 +50,14 @@ describe('authenticateDigitalAssetCreators', () => {
             'FirstTestToken',
             'FTT',
             digitalAssetsOwner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
         const secondDigitalAsset = await new LSP7Mintable__factory(digitalAssetsOwner).deploy(
             'SecondTestToken',
             'STT',
             digitalAssetsOwner.address,
+            LSP4_TOKEN_TYPES.TOKEN,
             true,
         );
 
