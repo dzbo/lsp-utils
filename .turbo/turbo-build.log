@@ -1,0 +1,13 @@
+
+> @lukso/lsp-utils@0.0.2 build /Users/b00ste/Desktop/Work/lsp-smart-contracts-utils
+> npm run build:types && unbuild
+
+
+> @lukso/lsp-utils@0.0.2 build:types
+> bash scripts/generateTypechain.bash
+
+Successfully generated 79 typings!
+Successfully generated 15 typings!
+Successfully generated 271 typings!
+sh: unbuild: command not found
+ ELIFECYCLE  Command failed.

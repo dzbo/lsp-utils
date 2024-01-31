@@ -1,0 +1,39 @@
+{
+    "name": "@lukso/lsp2-utils",
+    "version": "0.0.2",
+    "sideEffects": false,
+    "license": "MIT",
+    "files": [
+        "dist/**"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "npm run build:types && unbuild",
+        "build:types": "bash scripts/generateTypechain.bash",
+        "lint": "eslint \"src/**/*.ts*\"",
+        "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+        "docs": "api-extractor run --local --verbose"
+    },
+    "dependencies": {
+        "@erc725/smart-contracts": "^7.0.0",
+        "@lukso/lsp-smart-contracts": "0.14.0",
+        "ethers": "^6.8.0"
+    },
+    "devDependencies": {
+        "@lukso/tsconfig": "workspace:*",
+        "@typechain/ethers-v6": "^0.4.0",
+        "eslint": "^7.32.0",
+        "typechain": "^8.3.2",
+        "unbuild": "^2.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

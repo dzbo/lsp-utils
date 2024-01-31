@@ -1,10 +1,12 @@
-/node_modules
-
-# build
-/dist
+node_modules/
+.turbo/
+dist/
+typechain/
 
 # Typechain smart contracts types
 /src/typechain
 
 # hardhat
 /cache
+
+
