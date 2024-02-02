@@ -8,9 +8,11 @@ import { defaultIpfsGateway } from '../../constants';
  * @param url The URL that is to be validated.
  * @param ipfsGateway The IPFS Gateway to be used for IPFS URLs.
  * @example
- * validateIpfsUrl('ipfs://{hash}') //=> 'https://2eff.lukso.dev/ipfs/{hash}'
- * validateIpfsUrl('https://google.com/something') //=> 'https://google.com/something'
- * validateIpfsUrl('') //=> ''
+ * ```ts
+ * validateIpfsUrl('ipfs://{hash}') => 'https://2eff.lukso.dev/ipfs/{hash}'
+ * validateIpfsUrl('https://google.com/something') => 'https://google.com/something'
+ * validateIpfsUrl('') => ''
+ * ```
  */
 export const validateIpfsUrl = (url: string, ipfsGateway?: string): string => {
     return url.startsWith('ipfs://')

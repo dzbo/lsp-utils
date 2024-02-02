@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
-        "module": "NodeNext",
-        "target": "ES2021",
-        "lib": ["ES2020", "DOM"],
+        "module": "CommonJS",
+        "target": "ES2022",
+        "lib": ["ES2022"],
         "declaration": true,
-        "outDir": "./dist/es6",
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "Node",
         "skipLibCheck": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
     },
     "include": ["src/***/**/*.ts"],
-    "exclude": ["node_modules", "dist", "src/***/**/*.test.ts"]
+    "exclude": ["node_modules", "dist", "src/***/**/*.test.ts"],
 }

@@ -40,10 +40,10 @@ export {
     isValidArrayLengthValue,
     removeElementFromArrayAndMap,
     removeLastElementFromArrayAndMap,
-} from './LSP2';
+} from './LSP2ERC725YJSONSchema';
 
 // ------ LSP3 ------
-export { getProfileMetadata, isProfileMetadata } from './LSP3';
+export { getProfileMetadata, isProfileMetadata } from './LSP3ProfileMetadata';
 
 // ------ LSP4 ------
 export {
@@ -53,10 +53,10 @@ export {
     getDigitalAssetCreators,
     getAssetMetadata,
     isAssetMetadata,
-} from './LSP4';
+} from './LSP4DigitalAssetMetadata';
 
 // ------ LSP5 ------
-export { generateReceivedAssetKeys, generateSentAssetKeys } from './LSP5';
+export { generateReceivedAssetKeys, generateSentAssetKeys } from './LSP5ReceivedAssets';
 
 // ------ LSP6 ------
 export {
@@ -67,7 +67,7 @@ export {
     encodeAllowedERC725YDataKeys,
     encodePermissions,
     decodePermissions,
-} from './LSP6';
+} from './LSP6KeyManager';
 
 // ------ LSP12 ------
 export {
@@ -75,7 +75,7 @@ export {
     authenticateIssuedAssets,
     removeIssuedAssets,
     getIssuedAssets,
-} from './LSP12';
+} from './LSP12IssuedAssets';
 
 // ------ LSP23 ------
-export { deployUniversalProfile } from './LSP23';
+export { deployUniversalProfile } from './LSP23LinkedContractsFactory';

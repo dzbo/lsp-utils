@@ -3,10 +3,10 @@
 ## Modules
 
 -   [IPFS](modules/IPFS.md)
--   [LSP12](modules/LSP12.md)
--   [LSP2](modules/LSP2.md)
--   [LSP23](modules/LSP23.md)
--   [LSP3](modules/LSP3.md)
--   [LSP4](modules/LSP4.md)
--   [LSP5](modules/LSP5.md)
--   [LSP6](modules/LSP6.md)
+-   [LSP12IssuedAssets](modules/LSP12IssuedAssets.md)
+-   [LSP23LinkedContractsFactory](modules/LSP23LinkedContractsFactory.md)
+-   [LSP2ERC725YJSONSchema](modules/LSP2ERC725YJSONSchema.md)
+-   [LSP3ProfileMetadata](modules/LSP3ProfileMetadata.md)
+-   [LSP4DigitalAssetMetadata](modules/LSP4DigitalAssetMetadata.md)
+-   [LSP5ReceivedAssets](modules/LSP5ReceivedAssets.md)
+-   [LSP6KeyManager](modules/LSP6KeyManager.md)

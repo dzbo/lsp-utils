@@ -1,6 +1,6 @@
-import { LSP3ProfileMetadata, LSP4AssetMetadata } from '../types';
+import { LSP3ProfileMetadataJSON, LSP4DigitalAssetMetadataJSON } from '@lukso/lsp-smart-contracts';
 
-export const defaultLSP3ProfileMetadata: LSP3ProfileMetadata = {
+export const defaultLSP3ProfileMetadata: LSP3ProfileMetadataJSON = {
     LSP3Profile: {
         name: '',
         description: '',
@@ -12,11 +12,9 @@ export const defaultLSP3ProfileMetadata: LSP3ProfileMetadata = {
     },
 };
 
-export const defaultLSP4AssetMetadata: LSP4AssetMetadata = {
+export const defaultLSP4AssetMetadata: LSP4DigitalAssetMetadataJSON = {
     LSP4Metadata: {
-        name: '',
         description: '',
-        attributes: [],
         links: [],
         icon: [],
         images: [],
