@@ -1,13 +1,13 @@
 {
     "entryPoints": [
         "src/IPFS/index.ts",
-        "src/LSP2/index.ts",
-        "src/LSP3/index.ts",
-        "src/LSP4/index.ts",
-        "src/LSP5/index.ts",
-        "src/LSP6/index.ts",
-        "src/LSP12/index.ts",
-        "src/LSP23/index.ts"
+        "src/LSP2ERC725YJSONSchema/index.ts",
+        "src/LSP3ProfileMetadata/index.ts",
+        "src/LSP4DigitalAssetMetadata/index.ts",
+        "src/LSP5ReceivedAssets/index.ts",
+        "src/LSP6KeyManager/index.ts",
+        "src/LSP12IssuedAssets/index.ts",
+        "src/LSP23LinkedContractsFactory/index.ts"
     ],
     "out": "docs",
     "plugin": ["typedoc-plugin-markdown"],
