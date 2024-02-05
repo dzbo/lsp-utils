@@ -1,0 +1,56 @@
+name: Github + NPM Release
+
+on:
+    push:
+        branches:
+            - 'main'
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: google-github-actions/release-please-action@v4
+              id: release
+              with:
+                  release-type: node
+                  package-name: '@lukso/lsp-utils'
+                  bump-minor-pre-major: true
+                  default-branch: main
+                  changelog-types: '[{"type": "feat!","section":"BREAKING CHANGES","hidden": false},{"type": "refactor!","section":"BREAKING CHANGES","hidden": false},{"type": "build!","section":"BREAKING CHANGES","hidden": false},{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+                  command: manifest
+
+            - uses: actions/checkout@v3
+              if: ${{ steps.release.outputs.release_created }}
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              if: ${{ steps.release.outputs.release_created }}
+              with:
+                  version: '8.8.0'
+
+            - name: Use Node.js '20'
+              uses: actions/setup-node@v4
+              if: ${{ steps.release.outputs.release_created }}
+              with:
+                  node-version: '20.x'
+                  registry-url: 'https://registry.npmjs.org'
+                  scope: '@lukso'
+                  cache: 'pnpm'
+
+            - name: 📦 Install dependencies
+              if: ${{ steps.release.outputs.release_created }}
+              run: pnpm install --frozen-lockfile
+
+            - name: 🔍 Run Build
+              if: ${{ steps.release.outputs.release_created }}
+              run: pnpm build
+
+            - name: 📢 Publish on NPM
+              if: ${{ steps.release.outputs.release_created }}
+              run: pnpm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
