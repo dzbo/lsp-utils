@@ -1,0 +1,1 @@
+export { encodeAllowedCalls } from './encodeAllowedCalls';

@@ -1,0 +1,1 @@
+export { removeDigitalAssetCreators } from './removeDigitalAssetCreators';

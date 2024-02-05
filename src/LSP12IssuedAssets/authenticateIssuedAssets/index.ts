@@ -1,0 +1,1 @@
+export { authenticateIssuedAssets } from './authenticateIssuedAssets';

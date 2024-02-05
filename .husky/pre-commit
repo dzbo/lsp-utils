@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Check if there are tests containing `.only`
+bash scripts/searchTestsForOnly.bash
+
 if [[ $(git diff origin/main --name-only src/) != "" ]];
 then
     npm test

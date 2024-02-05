@@ -1,35 +1,81 @@
 // ------ Constants ------
-export { LSP3ProfileMetadata, defaultIpfsGateway, defaultLSP3ProfileMetadata } from './constants';
+export {
+    defaultLSP3ProfileMetadata,
+    defaultIpfsGateway,
+    LSP23LinkedContractsFactoryAddress,
+    upPostDeploymentModuleAddress,
+    UniversalProfileInitAddress,
+    LSP6KeyManagerInitAddress,
+    LSP7MintableInitAddress,
+    LSP8MintableInitAddress,
+    LSP1UniversalReceiverDelegateUPAddress,
+} from './constants';
+
+// ------ Types ------
+export * from './types';
+
+// ------ Helpers ------
+export { getErc725yContract, supportsLSPInterface } from './helpers';
+
+// ------ TypeChain ------
+export * as erc725Typechain from './typechain/erc725';
+export * as luksoTypechain from './typechain/lukso';
+export * as openzeppelinTypechain from './typechain/openzeppelin';
 
 // ------ IPFS ------
-export { validateIpfsUrl } from './IPFS/validateIpfsUrl';
+export { validateIpfsUrl } from './IPFS';
 
 // ------ LSP2 ------
-export { decodeAssetUrl } from './LSP2/decodeAssetUrl';
-export { decodeJsonUrl } from './LSP2/decodeJsonUrl';
-export { encodeAssetUrl } from './LSP2/encodeAssetUrl';
-export { encodeJsonUrl } from './LSP2/encodeJsonUrl';
-export { generateArrayElementKeyAtIndex } from './LSP2/generateArrayElementKeyAtIndex';
-export { generateArrayKey } from './LSP2/generateArrayKey';
-export { generateMappingKey } from './LSP2/generateMappingKey';
-export { generateMappingWithGroupingKey } from './LSP2/generateMappingWithGroupingKey';
-export { generateSingletonKey } from './LSP2/generateSingletonKey';
-export { isCompactBytesArray } from './LSP2/isCompactBytesArray';
-export { isValidArrayLengthValue } from './LSP2/isValidArrayLengthValue';
-export { removeElementFromArrayAndMap } from './LSP2/removeElementFromArrayAndMap';
-export { removeLastElementFromArrayAndMap } from './LSP2/removeLastElementFromArrayAndMap';
+export {
+    decodeAssetUrl,
+    decodeJsonUrl,
+    encodeAssetUrl,
+    encodeJsonUrl,
+    generateArrayElementKeyAtIndex,
+    generateArrayKey,
+    generateMappingKey,
+    generateMappingWithGroupingKey,
+    generateSingletonKey,
+    isCompactBytesArray,
+    isValidArrayLengthValue,
+    removeElementFromArrayAndMap,
+    removeLastElementFromArrayAndMap,
+} from './LSP2ERC725YJSONSchema';
 
 // ------ LSP3 ------
-export { getProfileMetadata } from './LSP3/getProfileMetadata';
-export { isProfileMetadata } from './LSP3/isProfileMetadata';
+export { getProfileMetadata, isProfileMetadata } from './LSP3ProfileMetadata';
+
+// ------ LSP4 ------
+export {
+    addDigitalAssetCreators,
+    authenticateDigitalAssetCreators,
+    removeDigitalAssetCreators,
+    getDigitalAssetCreators,
+    getAssetMetadata,
+    isAssetMetadata,
+} from './LSP4DigitalAssetMetadata';
 
 // ------ LSP5 ------
-export { generateReceivedAssetKeys } from './LSP5/generateReceivedAssetKeys';
-export { generateSentAssetKeys } from './LSP5/generateSentAssetKeys';
+export { generateReceivedAssetKeys, generateSentAssetKeys } from './LSP5ReceivedAssets';
 
 // ------ LSP6 ------
-export { decodeAllowedCalls } from './LSP6/decodeAllowedCalls';
-export { encodeAllowedCalls } from './LSP6/encodeAllowedCalls';
-export { decodeAllowedERC725YDataKeys } from './LSP6/decodeAllowedERC725YDataKeys';
-export { encodeAllowedERC725YDataKeys } from './LSP6/encodeAllowedERC725YDataKeys';
-export { createValidityTimestamp } from './LSP6/createValidityTimestamp';
+export {
+    createValidityTimestamp,
+    decodeAllowedCalls,
+    encodeAllowedCalls,
+    decodeAllowedERC725YDataKeys,
+    encodeAllowedERC725YDataKeys,
+    encodePermissions,
+    decodePermissions,
+} from './LSP6KeyManager';
+
+// ------ LSP12 ------
+export {
+    addIssuedAssets,
+    authenticateIssuedAssets,
+    removeIssuedAssets,
+    getIssuedAssets,
+} from './LSP12IssuedAssets';
+
+// ------ LSP23 ------
+export { deployUniversalProfile } from './LSP23LinkedContractsFactory';

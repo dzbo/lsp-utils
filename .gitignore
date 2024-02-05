@@ -1,7 +1,10 @@
-node_modules/
+/node_modules
 
 # build
-dist/lib/
+/dist
 
 # Typechain smart contracts types
-types/
+/src/typechain
+
+# hardhat
+/cache
