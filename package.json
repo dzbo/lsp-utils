@@ -46,12 +46,7 @@
         "test:LSP12": "hardhat test src/LSP12/**/*.test.ts",
         "test:LSP23": "hardhat test src/LSP23/**/*.test.ts",
         "test": "hardhat test src/***/**/*.test.ts",
-        "prepare": "husky install",
-        "release": "standard-version",
-        "release:minor": "standard-version --release-as minor",
-        "release:patch": "standard-version --release-as patch",
-        "release:major": "standard-version --release-as major",
-        "publish": "git push --follow-tags origin main && npm publish"
+        "prepare": "husky install"
     },
     "dependencies": {
         "@erc725/erc725.js": "0.23.0",
@@ -76,7 +71,6 @@
         "hardhat": "^2.18.2",
         "husky": "^8.0.0",
         "prettier": "^3.0.3",
-        "standard-version": "^9.5.0",
         "ts-node": "^10.9.1",
         "typechain": "^8.3.2",
         "typedoc": "^0.25.3",
