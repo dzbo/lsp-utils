@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 * add `encodePermissions(..)` utility function ([#6](https://github.com/lukso-network/lsp-utils/issues/6)) ([6db7b7a](https://github.com/lukso-network/lsp-utils/commit/6db7b7a0583c082a7cfc2405991ac9e06eea2b84))
 * add `validityTimestamp` util function ([3ecb48a](https://github.com/lukso-network/lsp-utils/commit/3ecb48aa8202a5f41cbab8d3cd1d70f53065aab2))
 * check and fetch `LSP4Metadata` ([746d37a](https://github.com/lukso-network/lsp-utils/commit/746d37a42797cdcdb0c9c162575362e8dc7a8e5e))
-* create `deployUnviersalProfile.ts` util ([89d42c9](https://github.com/lukso-network/lsp-utils/commit/89d42c9b333241c2beef9249c5c9369dc64778fc))
+* create `deployUniversalProfile.ts` util ([89d42c9](https://github.com/lukso-network/lsp-utils/commit/89d42c9b333241c2beef9249c5c9369dc64778fc))
 * create `getErc725yContract` helper ([#22](https://github.com/lukso-network/lsp-utils/issues/22)) ([080bd37](https://github.com/lukso-network/lsp-utils/commit/080bd3770ac9a5f25739649479c26e0953e7c2e7))
 * create `LSP12IssuedAssets` basic utils ([#15](https://github.com/lukso-network/lsp-utils/issues/15)) ([dc2726a](https://github.com/lukso-network/lsp-utils/commit/dc2726a4a64a6078e837c07c06d72f7f7266067c))
 * create `LSP4Creators` basic utils ([#14](https://github.com/lukso-network/lsp-utils/issues/14)) ([952fbfe](https://github.com/lukso-network/lsp-utils/commit/952fbfe301d111013fcc640839aca522ab51d231))
