@@ -51,7 +51,7 @@ getProfileMetadata(ERC725Y) =>
 
 #### Defined in
 
-LSP3ProfileMetadata/getProfileMetadata/getProfileMetadata.ts:53
+[LSP3ProfileMetadata/getProfileMetadata/getProfileMetadata.ts:53](https://github.com/lukso-network/lsp-utils/blob/31b2f8b/src/LSP3ProfileMetadata/getProfileMetadata/getProfileMetadata.ts#L53)
 
 ---
 
@@ -88,4 +88,49 @@ isProfileMetadata({ description: "", links: [], name: "", tags: [] }) => false
 
 #### Defined in
 
-LSP3ProfileMetadata/isProfileMetadata/isProfileMetadata.ts:16
+[LSP3ProfileMetadata/isProfileMetadata/isProfileMetadata.ts:16](https://github.com/lukso-network/lsp-utils/blob/31b2f8b/src/LSP3ProfileMetadata/isProfileMetadata/isProfileMetadata.ts#L16)
+
+---
+
+### setProfileMetadata
+
+▸ **setProfileMetadata**(`erc725y`, `json`, `url`, `signer?`): `Promise`\<`void`\>
+
+Set Profile metadata.
+
+#### Parameters
+
+| Name      | Type                      | Description                                                                  |
+| :-------- | :------------------------ | :--------------------------------------------------------------------------- |
+| `erc725y` | `BytesLike` \| `ERC725Y`  | The address of the Profile whoose metadata needs to be updated.              |
+| `json`    | `LSP3ProfileMetadataJSON` | The JSON that was hosted at `url`.                                           |
+| `url`     | `string`                  | The URL where the JSON file is hosted.                                       |
+| `signer?` | `Signer` \| `Wallet`      | The etehrs `Signer`, address that is allowed ot modify the Profile metadata. |
+
+#### Returns
+
+`Promise`\<`void`\>
+
+**`See`**
+
+https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-3-Profile-Metadata.md
+
+**`Example`**
+
+```ts
+setProfileMetadata(
+  "0x..."
+  {
+    LSP3Profile: {
+      "name": "Tom",
+      "description": "Some random description about Tom"
+    }
+  },
+  "https://google.com/",
+  signer
+)
+```
+
+#### Defined in
+
+LSP3ProfileMetadata/setProfileMetadata/setProfileMetadata.ts:37

@@ -1,0 +1,1 @@
+export { setProfileMetadata } from './setProfileMetadata';

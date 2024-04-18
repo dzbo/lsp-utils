@@ -49,9 +49,9 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@erc725/erc725.js": "0.23.0",
+        "@erc725/erc725.js": "0.25.0",
         "@erc725/smart-contracts": "^7.0.0",
-        "@lukso/lsp-smart-contracts": "0.14.0",
+        "@lukso/lsp-smart-contracts": "0.15.0",
         "@openzeppelin/contracts": "4.9.2",
         "ethers": "^6.8.0",
         "isomorphic-fetch": "^3.0.0",

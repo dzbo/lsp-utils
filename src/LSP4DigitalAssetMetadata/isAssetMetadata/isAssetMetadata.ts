@@ -19,6 +19,7 @@ export const isAssetMetadata = (
 ): object is LSP4DigitalAssetMetadataJSON => {
     return (
         'LSP4Metadata' in object &&
+        'name' in object.LSP4Metadata &&
         'description' in object.LSP4Metadata &&
         'links' in object.LSP4Metadata &&
         'images' in object.LSP4Metadata &&

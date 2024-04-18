@@ -1,0 +1,1 @@
+export { setAssetMetadata } from './setAssetMetadata';

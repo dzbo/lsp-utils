@@ -27,8 +27,10 @@ export { validateIpfsUrl } from './IPFS';
 
 // ------ LSP2 ------
 export {
+    decodeVerifiableURI,
     decodeAssetUrl,
     decodeJsonUrl,
+    encodeVerifiableURI,
     encodeAssetUrl,
     encodeJsonUrl,
     generateArrayElementKeyAtIndex,
@@ -43,7 +45,7 @@ export {
 } from './LSP2ERC725YJSONSchema';
 
 // ------ LSP3 ------
-export { getProfileMetadata, isProfileMetadata } from './LSP3ProfileMetadata';
+export { getProfileMetadata, isProfileMetadata, setProfileMetadata } from './LSP3ProfileMetadata';
 
 // ------ LSP4 ------
 export {

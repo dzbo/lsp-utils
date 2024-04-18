@@ -14,11 +14,13 @@ export const defaultLSP3ProfileMetadata: LSP3ProfileMetadataJSON = {
 
 export const defaultLSP4AssetMetadata: LSP4DigitalAssetMetadataJSON = {
     LSP4Metadata: {
+        name: '',
         description: '',
         links: [],
-        icon: [],
         images: [],
         assets: [],
+        icon: [],
+        attributes: [],
     },
 };
 

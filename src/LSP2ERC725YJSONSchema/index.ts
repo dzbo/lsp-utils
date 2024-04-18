@@ -1,5 +1,7 @@
+export { decodeVerifiableURI } from './decodeVerifiableURI';
 export { decodeAssetUrl } from './decodeAssetUrl';
 export { decodeJsonUrl } from './decodeJsonUrl';
+export { encodeVerifiableURI } from './encodeVerifiableURI';
 export { encodeAssetUrl } from './encodeAssetUrl';
 export { encodeJsonUrl } from './encodeJsonUrl';
 export { generateArrayElementKeyAtIndex } from './generateArrayElementKeyAtIndex';

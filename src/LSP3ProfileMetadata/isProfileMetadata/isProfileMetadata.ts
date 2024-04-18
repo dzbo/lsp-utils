@@ -20,11 +20,6 @@ export const isProfileMetadata = (
     return (
         'LSP3Profile' in object &&
         'name' in object.LSP3Profile &&
-        'description' in object.LSP3Profile &&
-        'links' in object.LSP3Profile &&
-        'tags' in object.LSP3Profile &&
-        'avatar' in object.LSP3Profile &&
-        'profileImage' in object.LSP3Profile &&
-        'backgroundImage' in object.LSP3Profile
+        'description' in object.LSP3Profile
     );
 };

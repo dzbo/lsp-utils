@@ -8,7 +8,7 @@ describe('isProfileMetadata', () => {
     });
 
     it('should return false if an object of type other than `LSP3ProfileMetadata` is passed', () => {
-        const object = { description: '', links: [], name: '', tags: [] };
+        const object = { description: '', links: [], tags: [] };
 
         expect(isProfileMetadata(object)).to.be.false;
     });

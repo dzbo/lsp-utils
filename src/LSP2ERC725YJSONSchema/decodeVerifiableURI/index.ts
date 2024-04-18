@@ -1,0 +1,1 @@
+export { decodeVerifiableURI } from './decodeVerifiableURI';
