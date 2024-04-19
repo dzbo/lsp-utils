@@ -53,6 +53,9 @@ export {
     getDigitalAssetCreators,
     getAssetMetadata,
     isAssetMetadata,
+    generateLSP4JSON,
+    generateLSP4JSONWithHash,
+    generateLSP4JSONVerifiableURI,
 } from './LSP4DigitalAssetMetadata';
 
 // ------ LSP5 ------

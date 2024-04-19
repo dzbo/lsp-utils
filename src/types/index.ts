@@ -44,12 +44,38 @@ export interface Asset {
 }
 export interface Avatar extends Asset {}
 
+export interface FungibleAsset {
+    address: AddressLike;
+}
+
 export interface NFTBasedAsset {
     address: AddressLike;
     tokenId?: BytesLike;
 }
 export interface NFTBasedImage extends NFTBasedAsset {}
 export interface NFTBasedAvatar extends NFTBasedAsset {}
+
+export interface Icons {
+    icons: Image[];
+    lsp7icons: FungibleAsset[];
+    lsp8icons: NFTBasedAsset[];
+}
+
+export interface Assets {
+    assets: Asset[];
+    lsp7assets: FungibleAsset[];
+    lsp8assets: NFTBasedAsset[];
+}
+
+export interface GroupImageField {
+    images: Image[];
+    lsp7images: FungibleAsset[];
+    lsp8images: NFTBasedAsset[];
+}
+
+export interface Images {
+    imageFields: GroupImageField[];
+}
 
 export interface LSP4AssetMetadata {
     LSP4Metadata: {

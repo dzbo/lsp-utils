@@ -4,3 +4,6 @@ export { removeDigitalAssetCreators } from './removeDigitalAssetCreators';
 export { getDigitalAssetCreators } from './getDigitalAssetCreators';
 export { getAssetMetadata } from './getAssetMetadata';
 export { isAssetMetadata } from './isAssetMetadata';
+export { generateLSP4JSON } from './generateLSP4JSON';
+export { generateLSP4JSONWithHash } from './generateLSP4JSONWithHash';
+export { generateLSP4JSONVerifiableURI } from './generateLSP4JSONVerifiableURI';
