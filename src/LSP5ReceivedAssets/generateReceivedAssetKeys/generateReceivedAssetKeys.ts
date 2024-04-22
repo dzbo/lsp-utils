@@ -1,6 +1,6 @@
-import { BytesLike, concat, isHexString, toBeHex, toNumber } from 'ethers';
+import { type BytesLike, concat, isHexString, toBeHex, toNumber, isAddress } from 'ethers';
 
-// `@luksp/lsp-smart-contracts` constants
+// `@lukso/lsp-smart-contracts` constants
 import { ERC725YDataKeys } from '@lukso/lsp-smart-contracts';
 
 // LSP2 utils
@@ -11,13 +11,15 @@ import { generateArrayElementKeyAtIndex } from '../../LSP2ERC725YJSONSchema/gene
 // typechain
 import { UniversalProfile } from '../../typechain/lukso';
 
+import assert from 'assert';
+
 /**
  * Generate an array of Data Key/Value pairs to be set on the receiver address after receiving assets.
  *
  * @since v0.0.1
  * @category LSP5
  *
- * @param erc725YContract The contract instance of the asset reciever.
+ * @param erc725YContract The contract instance of the asset receiver.
  * @param assetAddress The address of the asset being received (_e.g: an LSP7 or LSP8 token_).
  * @param assetInterfaceId The interfaceID of the asset being received.
  *
@@ -34,13 +36,14 @@ export const generateReceivedAssetKeys = async (
     assetAddress: BytesLike,
     assetInterfaceId: BytesLike,
 ) => {
-    if (isHexString(assetAddress, 20)) {
-        throw new Error(`'assetAddress' bytes length is not 20. Value: ${assetAddress}`);
-    }
-
-    if (isHexString(assetInterfaceId, 4)) {
-        throw new Error(`'assetInterfaceId' bytes length is not 4. Value: ${assetInterfaceId}`);
-    }
+    assert(
+        isAddress(assetAddress),
+        `'assetAddress' is not a valid address. Value: ${assetAddress}`,
+    );
+    assert(
+        isHexString(assetInterfaceId, 4),
+        `'assetInterfaceId' bytes length is not 4. Value: ${assetInterfaceId}`,
+    );
 
     // --- `LSP5ReceivedAssets[]` Array ---
     let currentArrayLengthBytes = await erc725YContract.getData(
@@ -94,7 +97,7 @@ export const generateReceivedAssetKeys = async (
     lsp5DataKeys[0] = ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length;
     lsp5DataValues[0] = toBeHex(currentArrayLength + 1, 16);
 
-    // Add asset address to `LSP5ReceivedAssets[index]`, where index == previous array length
+    // Add asset address to `LSP5ReceivedAssets[index]`, where index == previous array length.
     lsp5DataKeys[1] = generateArrayElementKeyAtIndex(
         ERC725YDataKeys.LSP5['LSP5ReceivedAssets[]'].length,
         currentArrayLength,
